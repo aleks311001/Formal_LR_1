@@ -12,7 +12,7 @@ template<typename T>
 std::string containerToString(const std::set<T>& set) {
     std::string result = "{";
     for (auto& item: set) {
-        result += item + ", ";
+        result += std::string() + item + ", ";
     }
     result += "}";
 
@@ -23,9 +23,41 @@ template<typename T, typename U>
 std::string containerToString(const std::unordered_multimap<T, U>& map) {
     std::string result = "{";
     for (auto& item: map) {
-        result += "(" + item.first;
-        result += ": " + item.second;
-        result += "), ";
+        result += std::string() + "(" + item.first + ": " + item.second + "), ";
+    }
+    result += "}";
+
+    return result;
+}
+
+template<typename T>
+std::string containerToString(const std::set<Situation<T>>& set) {
+    std::string result = "{\n";
+    for (auto& item: set) {
+        result += std::string() + "(" + item.left + " -> " + item.right + ", " +
+                item.first + "; point = " + std::to_string(item.point) + ")\n";
+    }
+    result += "}";
+
+    return result;
+}
+
+template<typename T>
+std::string containerToString(const std::unordered_map<T, std::set<T>>& map) {
+    std::string result = "{\n";
+    for (auto& item: map) {
+        result += std::string() + "(" + item.first + ": " + containerToString(item.second) + ")\n";
+    }
+    result += "}";
+
+    return result;
+}
+
+template<typename T>
+std::string containerToString(const std::unordered_map<T, size_t>& map) {
+    std::string result = "{";
+    for (auto& item: map) {
+        result += std::string() + "(" + item.first + ": " + std::to_string(item.second) + "), ";
     }
     result += "}";
 

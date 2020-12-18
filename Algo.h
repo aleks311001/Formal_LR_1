@@ -103,7 +103,7 @@ struct Node {
         std::queue<typename std::set<Situation<SymbolType>>::const_iterator> queueSituations;
 
         for (auto& situation: situations_) {
-            if (situation.getSymbol() == symbol) {
+            if (!situation.isEnd() && situation.getSymbol() == symbol) {
                 auto iterator = newNode.situations_.insert(situation.getNext()).first;
                 queueSituations.push(iterator);
             }
@@ -158,6 +158,8 @@ private:
 
     inline static const SymbolType END_SYMBOL = '$';
     inline static const SymbolType BEFORE_START_SYMBOL = '\0';
+
+    friend class TestAlgo;
 
     void findEpsGeneratingOneStep_(const Grammar<SymbolType>& grammar) {
         for (auto& rule: grammar.rules_) {
@@ -215,7 +217,7 @@ private:
         while (findFirstOneStep_(grammar));
 
         for (const SymbolType& ch: grammar.nonTerminal_) {
-            if (!first_.contains(ch)) {
+            if (!first_.contains(ch) || first_[ch].empty()) {
                 first_[ch].insert(END_SYMBOL);
             }
         }
@@ -277,7 +279,7 @@ private:
 
         auto& backtraceWord = endSituation.situation.right;
         for (auto it = backtraceWord.rbegin(); it != backtraceWord.rend(); ++it) {
-            if (*it != path.back().symbol) {
+            if (path.empty() || *it != path.back().symbol) {
                 return false;
             }
 
@@ -338,15 +340,7 @@ public:
                     ++index;
                 }
 
-                if (index < word.size()) {
-                    symbol = word[index];
-                } else {
-                    throw std::runtime_error("Something go wrong\n");
-//                    auto endSituation = nodes_[nowNode].getEndSituation(END_SYMBOL);
-//                    return endSituation.isValid &&
-//                           endSituation.situation.left == BEFORE_START_SYMBOL &&
-//                           endSituation.situation.point == 1;
-                }
+                symbol = word[index];
             } else {
                 if (symbol == END_SYMBOL) {
                     auto endSituation = nodes_[nowNode].getEndSituation(END_SYMBOL);

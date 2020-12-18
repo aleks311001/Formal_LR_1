@@ -69,3 +69,39 @@ TEST(TestSituation, testGetSymbol) {
     ASSERT_EQ(situation.getSymbol(), 'b');
     ASSERT_EQ(situation.getNext().getSymbol(), 'a');
 }
+
+TEST_F(TestNode, testAddNextSituations) {
+    testAddNextSituation();
+}
+
+TEST_F(TestNode, testOperators) {
+    testOperators();
+}
+
+TEST_F(TestNode, testGoTo) {
+    testGoTo();
+}
+
+TEST_F(TestNode, testGetFinish) {
+    testGetFinish();
+}
+
+TEST_F(TestAlgo, testFindEpsGeneratingAndFirst) {
+    testFindEpsGeneratingAndFirst();
+}
+
+TEST_F(TestAlgo, testGetFirstFunction) {
+    testGetFirstFunction();
+}
+
+TEST_F(TestAlgo, testFit) {
+    testFit();
+}
+
+TEST_F(TestAlgo, testBacktrace) {
+    testBacktrace();
+}
+
+TEST_F(TestAlgo, testPredict) {
+    testPredict();
+}

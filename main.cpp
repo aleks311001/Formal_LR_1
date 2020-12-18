@@ -12,7 +12,7 @@ int main() {
 
     Algo<char> algo;
     algo.fit(grammar);
-    std::cout << algo.predict("ababaabbaabababb");
+    std::cout << algo.predict("aa");
 
     return 0;
 }
