@@ -4,11 +4,20 @@
 int main() {
     Grammar<char> grammar;
 
-    grammar.addTerminalSymbol({'a', 'b'})
+    /*grammar.addTerminalSymbol({'a', 'b'})
            .addNonTerminalSymbol({'S'})
            .setStartSymbol('S')
            .addRule('S', "")
-           .addRule('S', "SaSb");
+           .addRule('S', "SaSb");*/
+
+    grammar.addTerminalSymbol({'a', 'b'})
+           .addNonTerminalSymbol({'S'})
+           .setStartSymbol('S')
+           .addRule('S', "aSa")
+           .addRule('S', "bSb")
+           .addRule('S', "a")
+           .addRule('S', "b")
+           .addRule('S', "");
 
     Algo<char> algo;
     algo.fit(grammar);

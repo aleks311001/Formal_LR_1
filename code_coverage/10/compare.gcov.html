@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2020-12-19 01:11:42</td>
+            <td class="headerValue">2020-12-19 20:56:12</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">5</td>
@@ -127,7 +127,7 @@
 <a name="56"><span class="lineNum">      56 </span>                :            : </a>
 <a name="57"><span class="lineNum">      57 </span>                :            :     struct __unspec</a>
 <a name="58"><span class="lineNum">      58 </span>                :            :     {</a>
-<a name="59"><span class="lineNum">      59 </span>                :<span class="lineCov">       3299 :       constexpr __unspec(__unspec*) noexcept { }</span></a>
+<a name="59"><span class="lineNum">      59 </span>                :<span class="lineCov">      15967 :       constexpr __unspec(__unspec*) noexcept { }</span></a>
 <a name="60"><span class="lineNum">      60 </span>                :            :     };</a>
 <a name="61"><span class="lineNum">      61 </span>                :            :   }</a>
 <a name="62"><span class="lineNum">      62 </span>                :            : </a>
@@ -325,15 +325,15 @@
 <a name="254"><span class="lineNum">     254 </span>                :            : </a>
 <a name="255"><span class="lineNum">     255 </span>                :            :     // comparisons</a>
 <a name="256"><span class="lineNum">     256 </span>                :            :     friend constexpr bool</a>
-<a name="257"><span class="lineNum">     257 </span>                :<span class="lineCov">       2596 :     operator==(strong_ordering __v, __cmp_cat::__unspec) noexcept</span></a>
-<a name="258"><span class="lineNum">     258 </span>                :<span class="lineCov">       2596 :     { return __v._M_value == 0; }</span></a>
+<a name="257"><span class="lineNum">     257 </span>                :<span class="lineCov">      12584 :     operator==(strong_ordering __v, __cmp_cat::__unspec) noexcept</span></a>
+<a name="258"><span class="lineNum">     258 </span>                :<span class="lineCov">      12584 :     { return __v._M_value == 0; }</span></a>
 <a name="259"><span class="lineNum">     259 </span>                :            : </a>
 <a name="260"><span class="lineNum">     260 </span>                :            :     friend constexpr bool</a>
 <a name="261"><span class="lineNum">     261 </span>                :            :     operator==(strong_ordering, strong_ordering) noexcept = default;</a>
 <a name="262"><span class="lineNum">     262 </span>                :            : </a>
 <a name="263"><span class="lineNum">     263 </span>                :            :     friend constexpr bool</a>
-<a name="264"><span class="lineNum">     264 </span>                :<span class="lineCov">        700 :     operator&lt; (strong_ordering __v, __cmp_cat::__unspec) noexcept</span></a>
-<a name="265"><span class="lineNum">     265 </span>                :<span class="lineCov">        700 :     { return __v._M_value &lt; 0; }</span></a>
+<a name="264"><span class="lineNum">     264 </span>                :<span class="lineCov">       3380 :     operator&lt; (strong_ordering __v, __cmp_cat::__unspec) noexcept</span></a>
+<a name="265"><span class="lineNum">     265 </span>                :<span class="lineCov">       3380 :     { return __v._M_value &lt; 0; }</span></a>
 <a name="266"><span class="lineNum">     266 </span>                :            : </a>
 <a name="267"><span class="lineNum">     267 </span>                :            :     friend constexpr bool</a>
 <a name="268"><span class="lineNum">     268 </span>                :<span class="lineCov">          2 :     operator&gt; (strong_ordering __v, __cmp_cat::__unspec) noexcept</span></a>

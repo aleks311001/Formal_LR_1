@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2020-12-19 01:11:42</td>
+            <td class="headerValue">2020-12-19 20:56:12</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">18</td>
@@ -380,7 +380,7 @@
 <a name="309"><span class="lineNum">     309 </span>                :            :   }</a>
 <a name="310"><span class="lineNum">     310 </span>                :            : </a>
 <a name="311"><span class="lineNum">     311 </span>                :            :   // Returns true if and only if the assertion succeeded.</a>
-<a name="312"><span class="lineNum">     312 </span>                :<span class="lineCov">         49 :   operator bool() const { return success_; }  // NOLINT</span></a>
+<a name="312"><span class="lineNum">     312 </span>                :<span class="lineCov">         50 :   operator bool() const { return success_; }  // NOLINT</span></a>
 <a name="313"><span class="lineNum">     313 </span>                :            : </a>
 <a name="314"><span class="lineNum">     314 </span>                :            :   // Returns the assertion's negation. Used with EXPECT/ASSERT_FALSE.</a>
 <a name="315"><span class="lineNum">     315 </span>                :            :   AssertionResult operator!() const;</a>
@@ -396,9 +396,9 @@
 <a name="325"><span class="lineNum">     325 </span>                :<span class="lineNoCov">          0 :   const char* failure_message() const { return message(); }</span></a>
 <a name="326"><span class="lineNum">     326 </span>                :            : </a>
 <a name="327"><span class="lineNum">     327 </span>                :            :   // Streams a custom failure message into this object.</a>
-<a name="328"><span class="lineNum">     328 </span>                :<span class="lineCov">         54 :   template &lt;typename T&gt; AssertionResult&amp; operator&lt;&lt;(const T&amp; value) {</span></a>
-<a name="329"><span class="lineNum">     329 </span>  [<span class="branchCov" title="Branch 0 was taken 54 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 54 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">         54 :     AppendMessage(Message() &lt;&lt; value);</span></a>
-<a name="330"><span class="lineNum">     330 </span>                :<span class="lineCov">         54 :     return *this;</span></a>
+<a name="328"><span class="lineNum">     328 </span>                :<span class="lineCov">         57 :   template &lt;typename T&gt; AssertionResult&amp; operator&lt;&lt;(const T&amp; value) {</span></a>
+<a name="329"><span class="lineNum">     329 </span>  [<span class="branchCov" title="Branch 0 was taken 57 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 57 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">         57 :     AppendMessage(Message() &lt;&lt; value);</span></a>
+<a name="330"><span class="lineNum">     330 </span>                :<span class="lineCov">         57 :     return *this;</span></a>
 <a name="331"><span class="lineNum">     331 </span>                :            :   }</a>
 <a name="332"><span class="lineNum">     332 </span>                :            : </a>
 <a name="333"><span class="lineNum">     333 </span>                :            :   // Allows streaming basic output manipulators such as endl or flush into</a>
@@ -411,10 +411,10 @@
 <a name="340"><span class="lineNum">     340 </span>                :            : </a>
 <a name="341"><span class="lineNum">     341 </span>                :            :  private:</a>
 <a name="342"><span class="lineNum">     342 </span>                :            :   // Appends the contents of message to message_.</a>
-<a name="343"><span class="lineNum">     343 </span>                :<span class="lineCov">         54 :   void AppendMessage(const Message&amp; a_message) {</span></a>
-<a name="344"><span class="lineNum">     344 </span>        [<span class="branchCov" title="Branch 0 was taken 18 times"> + </span><span class="branchCov" title="Branch 1 was taken 36 times"> + </span>]:<span class="lineCov">         54 :     if (message_.get() == nullptr) message_.reset(new ::std::string);</span></a>
-<a name="345"><span class="lineNum">     345 </span>        [<span class="branchCov" title="Branch 0 was taken 54 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         54 :     message_-&gt;append(a_message.GetString().c_str());</span></a>
-<a name="346"><span class="lineNum">     346 </span>                :<span class="lineCov">         54 :   }</span></a>
+<a name="343"><span class="lineNum">     343 </span>                :<span class="lineCov">         57 :   void AppendMessage(const Message&amp; a_message) {</span></a>
+<a name="344"><span class="lineNum">     344 </span>        [<span class="branchCov" title="Branch 0 was taken 19 times"> + </span><span class="branchCov" title="Branch 1 was taken 38 times"> + </span>]:<span class="lineCov">         57 :     if (message_.get() == nullptr) message_.reset(new ::std::string);</span></a>
+<a name="345"><span class="lineNum">     345 </span>        [<span class="branchCov" title="Branch 0 was taken 57 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         57 :     message_-&gt;append(a_message.GetString().c_str());</span></a>
+<a name="346"><span class="lineNum">     346 </span>                :<span class="lineCov">         57 :   }</span></a>
 <a name="347"><span class="lineNum">     347 </span>                :            : </a>
 <a name="348"><span class="lineNum">     348 </span>                :            :   // Swap the contents of this AssertionResult with other.</a>
 <a name="349"><span class="lineNum">     349 </span>                :            :   void swap(AssertionResult&amp; other);</a>

@@ -37,11 +37,11 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2020-12-19 01:11:42</td>
+            <td class="headerValue">2020-12-19 20:56:12</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">11</td>
-            <td class="headerCovTableEntry">11</td>
+            <td class="headerCovTableEntry">10</td>
+            <td class="headerCovTableEntry">10</td>
             <td class="headerCovTableEntryHi">100.0 %</td>
           </tr>
           <tr>
@@ -423,8 +423,8 @@
 <a name="352"><span class="lineNum">     352 </span>                :            :     {</a>
 <a name="353"><span class="lineNum">     353 </span>                :            :       _GLIBCXX14_CONSTEXPR</a>
 <a name="354"><span class="lineNum">     354 </span>                :            :       bool</a>
-<a name="355"><span class="lineNum">     355 </span>                :<span class="lineCov">        610 :       operator()(const _Tp&amp; __x, const _Tp&amp; __y) const</span></a>
-<a name="356"><span class="lineNum">     356 </span>                :<span class="lineCov">        610 :       { return __x == __y; }</span></a>
+<a name="355"><span class="lineNum">     355 </span>                :<span class="lineCov">       1232 :       operator()(const _Tp&amp; __x, const _Tp&amp; __y) const</span></a>
+<a name="356"><span class="lineNum">     356 </span>                :<span class="lineCov">       1232 :       { return __x == __y; }</span></a>
 <a name="357"><span class="lineNum">     357 </span>                :            :     };</a>
 <a name="358"><span class="lineNum">     358 </span>                :            : </a>
 <a name="359"><span class="lineNum">     359 </span>                :            :   /// One of the @link comparison_functors comparison functors@endlink.</a>
@@ -453,8 +453,8 @@
 <a name="382"><span class="lineNum">     382 </span>                :            :     {</a>
 <a name="383"><span class="lineNum">     383 </span>                :            :       _GLIBCXX14_CONSTEXPR</a>
 <a name="384"><span class="lineNum">     384 </span>                :            :       bool</a>
-<a name="385"><span class="lineNum">     385 </span>                :<span class="lineCov">       1814 :       operator()(const _Tp&amp; __x, const _Tp&amp; __y) const</span></a>
-<a name="386"><span class="lineNum">     386 </span>                :<span class="lineCov">       1814 :       { return __x &lt; __y; }</span></a>
+<a name="385"><span class="lineNum">     385 </span>                :<span class="lineCov">       6261 :       operator()(const _Tp&amp; __x, const _Tp&amp; __y) const</span></a>
+<a name="386"><span class="lineNum">     386 </span>                :<span class="lineCov">       6261 :       { return __x &lt; __y; }</span></a>
 <a name="387"><span class="lineNum">     387 </span>                :            :     };</a>
 <a name="388"><span class="lineNum">     388 </span>                :            : </a>
 <a name="389"><span class="lineNum">     389 </span>                :            :   /// One of the @link comparison_functors comparison functors@endlink.</a>
@@ -501,7 +501,7 @@
 <a name="430"><span class="lineNum">     430 </span>                :            :     struct less&lt;_Tp*&gt; : public binary_function&lt;_Tp*, _Tp*, bool&gt;</a>
 <a name="431"><span class="lineNum">     431 </span>                :            :     {</a>
 <a name="432"><span class="lineNum">     432 </span>                :            :       _GLIBCXX14_CONSTEXPR bool</a>
-<a name="433"><span class="lineNum">     433 </span>                :<span class="lineCov">        161 :       operator()(_Tp* __x, _Tp* __y) const _GLIBCXX_NOTHROW</span></a>
+<a name="433"><span class="lineNum">     433 </span>                :<span class="lineCov">        168 :       operator()(_Tp* __x, _Tp* __y) const _GLIBCXX_NOTHROW</span></a>
 <a name="434"><span class="lineNum">     434 </span>                :            :       {</a>
 <a name="435"><span class="lineNum">     435 </span>                :            : #if __cplusplus &gt;= 201402L</a>
 <a name="436"><span class="lineNum">     436 </span>                :            : #ifdef _GLIBCXX_HAVE_BUILTIN_IS_CONSTANT_EVALUATED</a>
@@ -511,7 +511,7 @@
 <a name="440"><span class="lineNum">     440 </span>                :            : #endif</a>
 <a name="441"><span class="lineNum">     441 </span>                :            :           return __x &lt; __y;</a>
 <a name="442"><span class="lineNum">     442 </span>                :            : #endif</a>
-<a name="443"><span class="lineNum">     443 </span>                :<span class="lineCov">        161 :         return (__UINTPTR_TYPE__)__x &lt; (__UINTPTR_TYPE__)__y;</span></a>
+<a name="443"><span class="lineNum">     443 </span>                :<span class="lineCov">        168 :         return (__UINTPTR_TYPE__)__x &lt; (__UINTPTR_TYPE__)__y;</span></a>
 <a name="444"><span class="lineNum">     444 </span>                :            :       }</a>
 <a name="445"><span class="lineNum">     445 </span>                :            :     };</a>
 <a name="446"><span class="lineNum">     446 </span>                :            : </a>
@@ -1203,12 +1203,12 @@
 <a name="1132"><span class="lineNum">    1132 </span>                :            :     : public unary_function&lt;_Tp, _Tp&gt;</a>
 <a name="1133"><span class="lineNum">    1133 </span>                :            :     {</a>
 <a name="1134"><span class="lineNum">    1134 </span>                :            :       _Tp&amp;</a>
-<a name="1135"><span class="lineNum">    1135 </span>                :<span class="lineCov">        153 :       operator()(_Tp&amp; __x) const</span></a>
-<a name="1136"><span class="lineNum">    1136 </span>                :<span class="lineCov">        153 :       { return __x; }</span></a>
+<a name="1135"><span class="lineNum">    1135 </span>                :<span class="lineCov">         66 :       operator()(_Tp&amp; __x) const</span></a>
+<a name="1136"><span class="lineNum">    1136 </span>                :<span class="lineCov">         66 :       { return __x; }</span></a>
 <a name="1137"><span class="lineNum">    1137 </span>                :            : </a>
 <a name="1138"><span class="lineNum">    1138 </span>                :            :       const _Tp&amp;</a>
-<a name="1139"><span class="lineNum">    1139 </span>                :<span class="lineCov">       2239 :       operator()(const _Tp&amp; __x) const</span></a>
-<a name="1140"><span class="lineNum">    1140 </span>                :<span class="lineCov">       2239 :       { return __x; }</span></a>
+<a name="1139"><span class="lineNum">    1139 </span>                :<span class="lineCov">       8019 :       operator()(const _Tp&amp; __x) const</span></a>
+<a name="1140"><span class="lineNum">    1140 </span>                :<span class="lineCov">       8019 :       { return __x; }</span></a>
 <a name="1141"><span class="lineNum">    1141 </span>                :            :     };</a>
 <a name="1142"><span class="lineNum">    1142 </span>                :            : </a>
 <a name="1143"><span class="lineNum">    1143 </span>                :            :   // Partial specialization, avoids confusing errors in e.g. std::set&lt;const T&gt;.</a>
@@ -1223,8 +1223,8 @@
 <a name="1152"><span class="lineNum">    1152 </span>                :            :       { return __x.first; }</a>
 <a name="1153"><span class="lineNum">    1153 </span>                :            : </a>
 <a name="1154"><span class="lineNum">    1154 </span>                :            :       const typename _Pair::first_type&amp;</a>
-<a name="1155"><span class="lineNum">    1155 </span>                :<span class="lineCov">        138 :       operator()(const _Pair&amp; __x) const</span></a>
-<a name="1156"><span class="lineNum">    1156 </span>                :<span class="lineCov">        138 :       { return __x.first; }</span></a>
+<a name="1155"><span class="lineNum">    1155 </span>                :<span class="lineCov">        421 :       operator()(const _Pair&amp; __x) const</span></a>
+<a name="1156"><span class="lineNum">    1156 </span>                :<span class="lineCov">        421 :       { return __x.first; }</span></a>
 <a name="1157"><span class="lineNum">    1157 </span>                :            : </a>
 <a name="1158"><span class="lineNum">    1158 </span>                :            : #if __cplusplus &gt;= 201103L</a>
 <a name="1159"><span class="lineNum">    1159 </span>                :            :       template&lt;typename _Pair2&gt;</a>

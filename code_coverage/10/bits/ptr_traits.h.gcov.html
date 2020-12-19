@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2020-12-19 01:11:42</td>
+            <td class="headerValue">2020-12-19 20:56:12</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">12</td>
@@ -214,8 +214,8 @@
 <a name="143"><span class="lineNum">     143 </span>                :            :        *  @return @c addressof(__r)</a>
 <a name="144"><span class="lineNum">     144 </span>                :            :       */</a>
 <a name="145"><span class="lineNum">     145 </span>                :            :       static _GLIBCXX20_CONSTEXPR pointer</a>
-<a name="146"><span class="lineNum">     146 </span>                :<span class="lineCov">       6571 :       pointer_to(__make_not_void&lt;element_type&gt;&amp; __r) noexcept</span></a>
-<a name="147"><span class="lineNum">     147 </span>                :<span class="lineCov">       6571 :       { return std::addressof(__r); }</span></a>
+<a name="146"><span class="lineNum">     146 </span>                :<span class="lineCov">       9755 :       pointer_to(__make_not_void&lt;element_type&gt;&amp; __r) noexcept</span></a>
+<a name="147"><span class="lineNum">     147 </span>                :<span class="lineCov">       9755 :       { return std::addressof(__r); }</span></a>
 <a name="148"><span class="lineNum">     148 </span>                :            :     };</a>
 <a name="149"><span class="lineNum">     149 </span>                :            : </a>
 <a name="150"><span class="lineNum">     150 </span>                :            :   /// Convenience alias for rebinding pointers.</a>
@@ -224,10 +224,10 @@
 <a name="153"><span class="lineNum">     153 </span>                :            : </a>
 <a name="154"><span class="lineNum">     154 </span>                :            :   template&lt;typename _Tp&gt;</a>
 <a name="155"><span class="lineNum">     155 </span>                :            :     constexpr _Tp*</a>
-<a name="156"><span class="lineNum">     156 </span>                :<span class="lineCov">        128 :     __to_address(_Tp* __ptr) noexcept</span></a>
+<a name="156"><span class="lineNum">     156 </span>                :<span class="lineCov">        202 :     __to_address(_Tp* __ptr) noexcept</span></a>
 <a name="157"><span class="lineNum">     157 </span>                :            :     {</a>
 <a name="158"><span class="lineNum">     158 </span>                :            :       static_assert(!std::is_function&lt;_Tp&gt;::value, &quot;not a function pointer&quot;);</a>
-<a name="159"><span class="lineNum">     159 </span>                :<span class="lineCov">        128 :       return __ptr;</span></a>
+<a name="159"><span class="lineNum">     159 </span>                :<span class="lineCov">        202 :       return __ptr;</span></a>
 <a name="160"><span class="lineNum">     160 </span>                :            :     }</a>
 <a name="161"><span class="lineNum">     161 </span>                :            : </a>
 <a name="162"><span class="lineNum">     162 </span>                :            : #if __cplusplus &lt;= 201703L</a>

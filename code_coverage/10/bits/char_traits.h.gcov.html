@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2020-12-19 01:11:42</td>
+            <td class="headerValue">2020-12-19 20:56:12</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">6</td>
@@ -323,7 +323,7 @@
 <a name="252"><span class="lineNum">     252 </span>                :            : #ifdef _GLIBCXX_HAVE_BUILTIN_IS_CONSTANT_EVALUATED</a>
 <a name="253"><span class="lineNum">     253 </span>                :            :       (void) __s;</a>
 <a name="254"><span class="lineNum">     254 </span>                :            :       // In constexpr contexts all strings should be constant.</a>
-<a name="255"><span class="lineNum">     255 </span>                :<span class="lineCov">        568 :       return __builtin_is_constant_evaluated();</span></a>
+<a name="255"><span class="lineNum">     255 </span>                :<span class="lineCov">        609 :       return __builtin_is_constant_evaluated();</span></a>
 <a name="256"><span class="lineNum">     256 </span>                :            : #else</a>
 <a name="257"><span class="lineNum">     257 </span>                :            :       while (__builtin_constant_p(*__s) &amp;&amp; *__s)</a>
 <a name="258"><span class="lineNum">     258 </span>                :            :         __s++;</a>
@@ -389,8 +389,8 @@
 <a name="318"><span class="lineNum">     318 </span>                :            : #endif</a>
 <a name="319"><span class="lineNum">     319 </span>                :            : </a>
 <a name="320"><span class="lineNum">     320 </span>                :            :       static _GLIBCXX17_CONSTEXPR void</a>
-<a name="321"><span class="lineNum">     321 </span>                :<span class="lineCov">       3598 :       assign(char_type&amp; __c1, const char_type&amp; __c2) _GLIBCXX_NOEXCEPT</span></a>
-<a name="322"><span class="lineNum">     322 </span>                :<span class="lineCov">       3598 :       { __c1 = __c2; }</span></a>
+<a name="321"><span class="lineNum">     321 </span>                :<span class="lineCov">       5302 :       assign(char_type&amp; __c1, const char_type&amp; __c2) _GLIBCXX_NOEXCEPT</span></a>
+<a name="322"><span class="lineNum">     322 </span>                :<span class="lineCov">       5302 :       { __c1 = __c2; }</span></a>
 <a name="323"><span class="lineNum">     323 </span>                :            : </a>
 <a name="324"><span class="lineNum">     324 </span>                :            :       static _GLIBCXX_CONSTEXPR bool</a>
 <a name="325"><span class="lineNum">     325 </span>                :            :       eq(const char_type&amp; __c1, const char_type&amp; __c2) _GLIBCXX_NOEXCEPT</a>
@@ -405,27 +405,27 @@
 <a name="334"><span class="lineNum">     334 </span>                :            :       }</a>
 <a name="335"><span class="lineNum">     335 </span>                :            : </a>
 <a name="336"><span class="lineNum">     336 </span>                :            :       static _GLIBCXX17_CONSTEXPR int</a>
-<a name="337"><span class="lineNum">     337 </span>                :<span class="lineCov">        762 :       compare(const char_type* __s1, const char_type* __s2, size_t __n)</span></a>
+<a name="337"><span class="lineNum">     337 </span>                :<span class="lineCov">       3953 :       compare(const char_type* __s1, const char_type* __s2, size_t __n)</span></a>
 <a name="338"><span class="lineNum">     338 </span>                :            :       {</a>
-<a name="339"><span class="lineNum">     339 </span>        [<span class="branchCov" title="Branch 0 was taken 325 times"> + </span><span class="branchCov" title="Branch 1 was taken 437 times"> + </span>]:<span class="lineCov">        762 :         if (__n == 0)</span></a>
-<a name="340"><span class="lineNum">     340 </span>                :<span class="lineCov">        325 :           return 0;</span></a>
+<a name="339"><span class="lineNum">     339 </span>        [<span class="branchCov" title="Branch 0 was taken 1619 times"> + </span><span class="branchCov" title="Branch 1 was taken 2334 times"> + </span>]:<span class="lineCov">       3953 :         if (__n == 0)</span></a>
+<a name="340"><span class="lineNum">     340 </span>                :<span class="lineCov">       1619 :           return 0;</span></a>
 <a name="341"><span class="lineNum">     341 </span>                :            : #if __cplusplus &gt;= 201703L</a>
-<a name="342"><span class="lineNum">     342 </span>                :<span class="lineCov">        437 :         if (__builtin_constant_p(__n)</span></a>
+<a name="342"><span class="lineNum">     342 </span>                :<span class="lineCov">       2334 :         if (__builtin_constant_p(__n)</span></a>
 <a name="343"><span class="lineNum">     343 </span>                :            :             &amp;&amp; __constant_char_array_p(__s1, __n)</a>
-<a name="344"><span class="lineNum">     344 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 437 times"> + </span>]:<span class="lineCov">        437 :             &amp;&amp; __constant_char_array_p(__s2, __n))</span></a>
+<a name="344"><span class="lineNum">     344 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 2334 times"> + </span>]:<span class="lineCov">       2334 :             &amp;&amp; __constant_char_array_p(__s2, __n))</span></a>
 <a name="345"><span class="lineNum">     345 </span>                :<span class="lineNoCov">          0 :           return __gnu_cxx::char_traits&lt;char_type&gt;::compare(__s1, __s2, __n);</span></a>
 <a name="346"><span class="lineNum">     346 </span>                :            : #endif</a>
-<a name="347"><span class="lineNum">     347 </span>                :<span class="lineCov">        437 :         return __builtin_memcmp(__s1, __s2, __n);</span></a>
+<a name="347"><span class="lineNum">     347 </span>                :<span class="lineCov">       2334 :         return __builtin_memcmp(__s1, __s2, __n);</span></a>
 <a name="348"><span class="lineNum">     348 </span>                :            :       }</a>
 <a name="349"><span class="lineNum">     349 </span>                :            : </a>
 <a name="350"><span class="lineNum">     350 </span>                :            :       static _GLIBCXX17_CONSTEXPR size_t</a>
-<a name="351"><span class="lineNum">     351 </span>                :<span class="lineCov">        568 :       length(const char_type* __s)</span></a>
+<a name="351"><span class="lineNum">     351 </span>                :<span class="lineCov">        609 :       length(const char_type* __s)</span></a>
 <a name="352"><span class="lineNum">     352 </span>                :            :       {</a>
 <a name="353"><span class="lineNum">     353 </span>                :            : #if __cplusplus &gt;= 201703L</a>
-<a name="354"><span class="lineNum">     354 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 568 times"> + </span>]:<span class="lineCov">        568 :         if (__constant_string_p(__s))</span></a>
+<a name="354"><span class="lineNum">     354 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 609 times"> + </span>]:<span class="lineCov">        609 :         if (__constant_string_p(__s))</span></a>
 <a name="355"><span class="lineNum">     355 </span>                :<span class="lineNoCov">          0 :           return __gnu_cxx::char_traits&lt;char_type&gt;::length(__s);</span></a>
 <a name="356"><span class="lineNum">     356 </span>                :            : #endif</a>
-<a name="357"><span class="lineNum">     357 </span>                :<span class="lineCov">        568 :         return __builtin_strlen(__s);</span></a>
+<a name="357"><span class="lineNum">     357 </span>                :<span class="lineCov">        609 :         return __builtin_strlen(__s);</span></a>
 <a name="358"><span class="lineNum">     358 </span>                :            :       }</a>
 <a name="359"><span class="lineNum">     359 </span>                :            : </a>
 <a name="360"><span class="lineNum">     360 </span>                :            :       static _GLIBCXX17_CONSTEXPR const char_type*</a>
@@ -455,15 +455,15 @@
 <a name="384"><span class="lineNum">     384 </span>                :            :       }</a>
 <a name="385"><span class="lineNum">     385 </span>                :            : </a>
 <a name="386"><span class="lineNum">     386 </span>                :            :       static _GLIBCXX20_CONSTEXPR char_type*</a>
-<a name="387"><span class="lineNum">     387 </span>                :<span class="lineCov">       2131 :       copy(char_type* __s1, const char_type* __s2, size_t __n)</span></a>
+<a name="387"><span class="lineNum">     387 </span>                :<span class="lineCov">       3620 :       copy(char_type* __s1, const char_type* __s2, size_t __n)</span></a>
 <a name="388"><span class="lineNum">     388 </span>                :            :       {</a>
-<a name="389"><span class="lineNum">     389 </span>        [<span class="branchCov" title="Branch 0 was taken 184 times"> + </span><span class="branchCov" title="Branch 1 was taken 1947 times"> + </span>]:<span class="lineCov">       2131 :         if (__n == 0)</span></a>
-<a name="390"><span class="lineNum">     390 </span>                :<span class="lineCov">        184 :           return __s1;</span></a>
+<a name="389"><span class="lineNum">     389 </span>        [<span class="branchCov" title="Branch 0 was taken 521 times"> + </span><span class="branchCov" title="Branch 1 was taken 3099 times"> + </span>]:<span class="lineCov">       3620 :         if (__n == 0)</span></a>
+<a name="390"><span class="lineNum">     390 </span>                :<span class="lineCov">        521 :           return __s1;</span></a>
 <a name="391"><span class="lineNum">     391 </span>                :            : #ifdef __cpp_lib_is_constant_evaluated</a>
-<a name="392"><span class="lineNum">     392 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 1947 times"> + </span>]:<span class="lineCov">       1947 :         if (std::is_constant_evaluated())</span></a>
+<a name="392"><span class="lineNum">     392 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 3099 times"> + </span>]:<span class="lineCov">       3099 :         if (std::is_constant_evaluated())</span></a>
 <a name="393"><span class="lineNum">     393 </span>                :<span class="lineNoCov">          0 :           return __gnu_cxx::char_traits&lt;char_type&gt;::copy(__s1, __s2, __n);</span></a>
 <a name="394"><span class="lineNum">     394 </span>                :            : #endif</a>
-<a name="395"><span class="lineNum">     395 </span>                :<span class="lineCov">       1947 :         return static_cast&lt;char_type*&gt;(__builtin_memcpy(__s1, __s2, __n));</span></a>
+<a name="395"><span class="lineNum">     395 </span>                :<span class="lineCov">       3099 :         return static_cast&lt;char_type*&gt;(__builtin_memcpy(__s1, __s2, __n));</span></a>
 <a name="396"><span class="lineNum">     396 </span>                :            :       }</a>
 <a name="397"><span class="lineNum">     397 </span>                :            : </a>
 <a name="398"><span class="lineNum">     398 </span>                :            :       static _GLIBCXX20_CONSTEXPR char_type*</a>
@@ -992,13 +992,13 @@
 <a name="921"><span class="lineNum">     921 </span>                :            :   {</a>
 <a name="922"><span class="lineNum">     922 </span>                :            :     template&lt;typename _ChTraits&gt;</a>
 <a name="923"><span class="lineNum">     923 </span>                :            :       constexpr auto</a>
-<a name="924"><span class="lineNum">     924 </span>                :<span class="lineCov">        715 :       __char_traits_cmp_cat(int __cmp) noexcept</span></a>
+<a name="924"><span class="lineNum">     924 </span>                :<span class="lineCov">       3733 :       __char_traits_cmp_cat(int __cmp) noexcept</span></a>
 <a name="925"><span class="lineNum">     925 </span>                :            :       {</a>
 <a name="926"><span class="lineNum">     926 </span>                :            :         if constexpr (requires { typename _ChTraits::comparison_category; })</a>
 <a name="927"><span class="lineNum">     927 </span>                :            :           {</a>
 <a name="928"><span class="lineNum">     928 </span>                :            :             using _Cat = typename _ChTraits::comparison_category;</a>
 <a name="929"><span class="lineNum">     929 </span>                :            :             static_assert( !is_void_v&lt;common_comparison_category_t&lt;_Cat&gt;&gt; );</a>
-<a name="930"><span class="lineNum">     930 </span>  [<span class="branchCov" title="Branch 0 was taken 166 times"> + </span><span class="branchCov" title="Branch 1 was taken 549 times"> + </span><span class="branchCov" title="Branch 2 was taken 134 times"> + </span><span class="branchCov" title="Branch 3 was taken 32 times"> + </span>]:<span class="lineCov">        715 :             return static_cast&lt;_Cat&gt;(__cmp &lt;=&gt; 0);</span></a>
+<a name="930"><span class="lineNum">     930 </span>  [<span class="branchCov" title="Branch 0 was taken 1450 times"> + </span><span class="branchCov" title="Branch 1 was taken 2283 times"> + </span><span class="branchCov" title="Branch 2 was taken 889 times"> + </span><span class="branchCov" title="Branch 3 was taken 561 times"> + </span>]:<span class="lineCov">       3733 :             return static_cast&lt;_Cat&gt;(__cmp &lt;=&gt; 0);</span></a>
 <a name="931"><span class="lineNum">     931 </span>                :            :           }</a>
 <a name="932"><span class="lineNum">     932 </span>                :            :         else</a>
 <a name="933"><span class="lineNum">     933 </span>                :            :           return static_cast&lt;weak_ordering&gt;(__cmp &lt;=&gt; 0);</a>

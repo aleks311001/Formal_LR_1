@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2020-12-19 01:11:42</td>
+            <td class="headerValue">2020-12-19 20:56:12</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">6</td>
@@ -234,8 +234,8 @@
 <a name="163"><span class="lineNum">     163 </span>                :            : #else</a>
 <a name="164"><span class="lineNum">     164 </span>                :            :       template&lt;typename _Seq = _Sequence, typename _Requires = typename</a>
 <a name="165"><span class="lineNum">     165 </span>                :            :                enable_if&lt;is_default_constructible&lt;_Seq&gt;::value&gt;::type&gt;</a>
-<a name="166"><span class="lineNum">     166 </span>                :<span class="lineCov">         77 :         queue()</span></a>
-<a name="167"><span class="lineNum">     167 </span>                :<span class="lineCov">         77 :         : c() { }</span></a>
+<a name="166"><span class="lineNum">     166 </span>                :<span class="lineCov">        155 :         queue()</span></a>
+<a name="167"><span class="lineNum">     167 </span>                :<span class="lineCov">        155 :         : c() { }</span></a>
 <a name="168"><span class="lineNum">     168 </span>                :            : </a>
 <a name="169"><span class="lineNum">     169 </span>                :            :       explicit</a>
 <a name="170"><span class="lineNum">     170 </span>                :            :       queue(const _Sequence&amp; __c)</a>
@@ -271,8 +271,8 @@
 <a name="200"><span class="lineNum">     200 </span>                :            :        *  Returns true if the %queue is empty.</a>
 <a name="201"><span class="lineNum">     201 </span>                :            :        */</a>
 <a name="202"><span class="lineNum">     202 </span>                :            :       _GLIBCXX_NODISCARD bool</a>
-<a name="203"><span class="lineNum">     203 </span>                :<span class="lineCov">        201 :       empty() const</span></a>
-<a name="204"><span class="lineNum">     204 </span>                :<span class="lineCov">        201 :       { return c.empty(); }</span></a>
+<a name="203"><span class="lineNum">     203 </span>                :<span class="lineCov">        582 :       empty() const</span></a>
+<a name="204"><span class="lineNum">     204 </span>                :<span class="lineCov">        582 :       { return c.empty(); }</span></a>
 <a name="205"><span class="lineNum">     205 </span>                :            : </a>
 <a name="206"><span class="lineNum">     206 </span>                :            :       /**  Returns the number of elements in the %queue.  */</a>
 <a name="207"><span class="lineNum">     207 </span>                :            :       size_type</a>
@@ -284,10 +284,10 @@
 <a name="213"><span class="lineNum">     213 </span>                :            :        *  element of the %queue.</a>
 <a name="214"><span class="lineNum">     214 </span>                :            :        */</a>
 <a name="215"><span class="lineNum">     215 </span>                :            :       reference</a>
-<a name="216"><span class="lineNum">     216 </span>                :<span class="lineCov">        124 :       front()</span></a>
+<a name="216"><span class="lineNum">     216 </span>                :<span class="lineCov">        430 :       front()</span></a>
 <a name="217"><span class="lineNum">     217 </span>                :            :       {</a>
 <a name="218"><span class="lineNum">     218 </span>                :            :         __glibcxx_requires_nonempty();</a>
-<a name="219"><span class="lineNum">     219 </span>                :<span class="lineCov">        124 :         return c.front();</span></a>
+<a name="219"><span class="lineNum">     219 </span>                :<span class="lineCov">        430 :         return c.front();</span></a>
 <a name="220"><span class="lineNum">     220 </span>                :            :       }</a>
 <a name="221"><span class="lineNum">     221 </span>                :            : </a>
 <a name="222"><span class="lineNum">     222 </span>                :            :       /**</a>
@@ -333,13 +333,13 @@
 <a name="262"><span class="lineNum">     262 </span>                :            :        *  underlying sequence.</a>
 <a name="263"><span class="lineNum">     263 </span>                :            :        */</a>
 <a name="264"><span class="lineNum">     264 </span>                :            :       void</a>
-<a name="265"><span class="lineNum">     265 </span>                :<span class="lineCov">        120 :       push(const value_type&amp; __x)</span></a>
-<a name="266"><span class="lineNum">     266 </span>                :<span class="lineCov">        120 :       { c.push_back(__x); }</span></a>
+<a name="265"><span class="lineNum">     265 </span>                :<span class="lineCov">        430 :       push(const value_type&amp; __x)</span></a>
+<a name="266"><span class="lineNum">     266 </span>                :<span class="lineCov">        430 :       { c.push_back(__x); }</span></a>
 <a name="267"><span class="lineNum">     267 </span>                :            : </a>
 <a name="268"><span class="lineNum">     268 </span>                :            : #if __cplusplus &gt;= 201103L</a>
 <a name="269"><span class="lineNum">     269 </span>                :            :       void</a>
-<a name="270"><span class="lineNum">     270 </span>                :<span class="lineCov">          4 :       push(value_type&amp;&amp; __x)</span></a>
-<a name="271"><span class="lineNum">     271 </span>                :<span class="lineCov">          4 :       { c.push_back(std::move(__x)); }</span></a>
+<a name="270"><span class="lineNum">     270 </span>                :<span class="lineCov">          7 :       push(value_type&amp;&amp; __x)</span></a>
+<a name="271"><span class="lineNum">     271 </span>                :<span class="lineCov">          7 :       { c.push_back(std::move(__x)); }</span></a>
 <a name="272"><span class="lineNum">     272 </span>                :            : </a>
 <a name="273"><span class="lineNum">     273 </span>                :            : #if __cplusplus &gt; 201402L</a>
 <a name="274"><span class="lineNum">     274 </span>                :            :       template&lt;typename... _Args&gt;</a>
@@ -366,11 +366,11 @@
 <a name="295"><span class="lineNum">     295 </span>                :            :        *  called.</a>
 <a name="296"><span class="lineNum">     296 </span>                :            :        */</a>
 <a name="297"><span class="lineNum">     297 </span>                :            :       void</a>
-<a name="298"><span class="lineNum">     298 </span>                :<span class="lineCov">        124 :       pop()</span></a>
+<a name="298"><span class="lineNum">     298 </span>                :<span class="lineCov">        430 :       pop()</span></a>
 <a name="299"><span class="lineNum">     299 </span>                :            :       {</a>
 <a name="300"><span class="lineNum">     300 </span>                :            :         __glibcxx_requires_nonempty();</a>
-<a name="301"><span class="lineNum">     301 </span>                :<span class="lineCov">        124 :         c.pop_front();</span></a>
-<a name="302"><span class="lineNum">     302 </span>                :<span class="lineCov">        124 :       }</span></a>
+<a name="301"><span class="lineNum">     301 </span>                :<span class="lineCov">        430 :         c.pop_front();</span></a>
+<a name="302"><span class="lineNum">     302 </span>                :<span class="lineCov">        430 :       }</span></a>
 <a name="303"><span class="lineNum">     303 </span>                :            : </a>
 <a name="304"><span class="lineNum">     304 </span>                :            : #if __cplusplus &gt;= 201103L</a>
 <a name="305"><span class="lineNum">     305 </span>                :            :       void</a>

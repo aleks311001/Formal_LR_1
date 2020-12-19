@@ -82,6 +82,18 @@ protected:
 
         startSituation = {.left = 'S', .right = "SaSSb", .point = 2, .first = '$'};
         node.addSituation(startSituation);
+        node.safeMode = false;
+    }
+
+    void testAddSituation() {
+        node.safeMode = true;
+        Situation<char> addedSituation = {.left = 'S', .right = "Sa", .point = 2, .first = 'a'};
+        node.addSituation(addedSituation);
+        EXPECT_TRUE(equalContainers(node.situations_, {startSituation, addedSituation}));
+
+        addedSituation.right = "bSa";
+        addedSituation.point = 3;
+        ASSERT_THROW(node.addSituation(addedSituation), std::runtime_error);
     }
 
     void testAddNextSituation() {
@@ -177,13 +189,13 @@ protected:
 
     void makeGrammarForMainTests() {
         grammar.addTerminalSymbol({'a', 'b'})
-                .addNonTerminalSymbol({'S'})
-                .setStartSymbol('S')
-                .addRule('S', "")
-                .addRule('S', "SaSb");
+               .addNonTerminalSymbol({'S'})
+               .setStartSymbol('S')
+               .addRule('S', "")
+               .addRule('S', "SaSb");
     }
 
-    void testFit() {
+    void testFitNoThrow() {
         makeGrammarForMainTests();
         algo.fit(grammar);
 
@@ -209,6 +221,27 @@ protected:
         EXPECT_TRUE(equalContainers(algo.edges_[3], {{'a', {4}}, {'b', {5}}}));
         EXPECT_TRUE(equalContainers(algo.edges_[4], {{'S', {6}}}));
         EXPECT_TRUE(equalContainers(algo.edges_[7], {}));
+    }
+
+    void testFitThrowPalindroms() {
+        grammar.addTerminalSymbol({'a', 'b'})
+               .addNonTerminalSymbol({'S'})
+               .setStartSymbol('S')
+               .addRule('S', "aSa")
+               .addRule('S', "bSb")
+               .addRule('S', "");
+        ASSERT_THROW(algo.fit(grammar), std::runtime_error);
+
+        grammar.addRule('S', "a")
+               .addRule('S', "b");
+        ASSERT_THROW(Algo().fit(grammar), std::runtime_error);
+    }
+
+    void testFitThrow() {
+        makeGrammarForMainTests();
+        grammar.addRule('S', "SbSa");
+
+        ASSERT_THROW(algo.fit(grammar), std::runtime_error);
     }
 
     void testBacktrace() {

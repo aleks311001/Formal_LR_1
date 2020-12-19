@@ -43,9 +43,10 @@ template <typename SymbolType = char>
 struct Node {
     const Grammar<SymbolType>& grammar_;
     std::set<Situation<SymbolType>> situations_;
+    bool safeMode = true;
 
-    Node(const Grammar<SymbolType>& grammar): grammar_(grammar) {}
-    Node(const Node& other): grammar_(other.grammar_), situations_(other.situations_) {}
+    Node(const Grammar<SymbolType>& grammar): grammar_(grammar), situations_(), safeMode(true) {}
+    Node(const Node& other): grammar_(other.grammar_), situations_(other.situations_), safeMode(true) {}
 
     void addNextSituations(const Situation<SymbolType>& nowSituation,
                            std::queue<typename std::set<Situation<SymbolType>>::const_iterator>& queueSituations,
@@ -58,7 +59,7 @@ struct Node {
 
             for (auto& firstSymbol: first(nowSituation)) {
                 newSituation.first = firstSymbol;
-                auto insertResult = situations_.insert(newSituation);
+                auto insertResult = addSituation(newSituation);
 
                 if (insertResult.second) {
                     queueSituations.push(insertResult.first);
@@ -94,17 +95,28 @@ struct Node {
         return 0 <=> 0;
     }
 
-    void addSituation(const Situation<SymbolType>& situation) {
-        situations_.insert(situation);
+    auto addSituation(const Situation<SymbolType>& situation) {
+        for (auto& situations: situations_) {
+            if (safeMode &&
+                situation.first == situations.first &&
+                situation.isEnd() &&
+                situations.isEnd() &&
+                situations != situation) {
+                throw std::runtime_error("This grammar is not LR(1) language.\n");
+            }
+        }
+
+        return situations_.insert(situation);
     }
 
     Node goTo(const SymbolType& symbol, auto& first) const {
         Node<SymbolType> newNode(grammar_);
+        newNode.safeMode = safeMode;
         std::queue<typename std::set<Situation<SymbolType>>::const_iterator> queueSituations;
 
         for (auto& situation: situations_) {
             if (!situation.isEnd() && situation.getSymbol() == symbol) {
-                auto iterator = newNode.situations_.insert(situation.getNext()).first;
+                auto iterator = newNode.addSituation(situation.getNext()).first;
                 queueSituations.push(iterator);
             }
         }
@@ -297,7 +309,7 @@ private:
     }
 
 public:
-    Algo& fit(const Grammar<SymbolType>& grammar) {
+    Algo& fit(const Grammar<SymbolType>& grammar, bool safeMode = true) {
         findAllFirst_(grammar);
 
         std::map<Node<SymbolType>, size_t> nodesToIndex;
@@ -309,6 +321,7 @@ public:
 
         auto firstFunction = getFirstFunction_(grammar);
         nodes_.emplace_back(grammar);
+        nodes_.front().safeMode = safeMode;
         nodes_.front().addSituation(startSituation);
         nodes_.front().addNextSituations(startSituation, firstFunction);
         nodesToIndex.emplace(nodes_.front(), 0);

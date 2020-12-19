@@ -37,11 +37,11 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2020-12-19 01:11:42</td>
+            <td class="headerValue">2020-12-19 20:56:12</td>
             <td></td>
             <td class="headerItem">Functions:</td>
-            <td class="headerCovTableEntry">33</td>
             <td class="headerCovTableEntry">34</td>
+            <td class="headerCovTableEntry">35</td>
             <td class="headerCovTableEntryHi">97.1 %</td>
           </tr>
           <tr>
@@ -491,12 +491,12 @@
 <a name="420"><span class="lineNum">     420 </span>                :            : // returned for different types.  Calling the function twice with the</a>
 <a name="421"><span class="lineNum">     421 </span>                :            : // same type argument is guaranteed to return the same ID.</a>
 <a name="422"><span class="lineNum">     422 </span>                :            : template &lt;typename T&gt;</a>
-<a name="423"><span class="lineNum">     423 </span>                :<span class="lineCov">         12 : TypeId GetTypeId() {</span></a>
+<a name="423"><span class="lineNum">     423 </span>                :<span class="lineCov">         13 : TypeId GetTypeId() {</span></a>
 <a name="424"><span class="lineNum">     424 </span>                :            :   // The compiler is required to allocate a different</a>
 <a name="425"><span class="lineNum">     425 </span>                :            :   // TypeIdHelper&lt;T&gt;::dummy_ variable for each T used to instantiate</a>
 <a name="426"><span class="lineNum">     426 </span>                :            :   // the template.  Therefore, the address of dummy_ is guaranteed to</a>
 <a name="427"><span class="lineNum">     427 </span>                :            :   // be unique.</a>
-<a name="428"><span class="lineNum">     428 </span>                :<span class="lineCov">         12 :   return &amp;(TypeIdHelper&lt;T&gt;::dummy_);</span></a>
+<a name="428"><span class="lineNum">     428 </span>                :<span class="lineCov">         13 :   return &amp;(TypeIdHelper&lt;T&gt;::dummy_);</span></a>
 <a name="429"><span class="lineNum">     429 </span>                :            : }</a>
 <a name="430"><span class="lineNum">     430 </span>                :            : </a>
 <a name="431"><span class="lineNum">     431 </span>                :            : // Returns the type ID of ::testing::Test.  Always call this instead</a>
@@ -510,14 +510,14 @@
 <a name="439"><span class="lineNum">     439 </span>                :            : // of a Test object.</a>
 <a name="440"><span class="lineNum">     440 </span>                :            : class TestFactoryBase {</a>
 <a name="441"><span class="lineNum">     441 </span>                :            :  public:</a>
-<a name="442"><span class="lineNum">     442 </span>                :<span class="lineCov">         16 :   virtual ~TestFactoryBase() {}</span></a>
+<a name="442"><span class="lineNum">     442 </span>                :<span class="lineCov">         17 :   virtual ~TestFactoryBase() {}</span></a>
 <a name="443"><span class="lineNum">     443 </span>                :            : </a>
 <a name="444"><span class="lineNum">     444 </span>                :            :   // Creates a test instance to run. The instance is both created and destroyed</a>
 <a name="445"><span class="lineNum">     445 </span>                :            :   // within TestInfoImpl::Run()</a>
 <a name="446"><span class="lineNum">     446 </span>                :            :   virtual Test* CreateTest() = 0;</a>
 <a name="447"><span class="lineNum">     447 </span>                :            : </a>
 <a name="448"><span class="lineNum">     448 </span>                :            :  protected:</a>
-<a name="449"><span class="lineNum">     449 </span>                :<span class="lineCov">         16 :   TestFactoryBase() {}</span></a>
+<a name="449"><span class="lineNum">     449 </span>                :<span class="lineCov">         17 :   TestFactoryBase() {}</span></a>
 <a name="450"><span class="lineNum">     450 </span>                :            : </a>
 <a name="451"><span class="lineNum">     451 </span>                :            :  private:</a>
 <a name="452"><span class="lineNum">     452 </span>                :            :   GTEST_DISALLOW_COPY_AND_ASSIGN_(TestFactoryBase);</a>
@@ -528,7 +528,7 @@
 <a name="457"><span class="lineNum">     457 </span>                :            : template &lt;class TestClass&gt;</a>
 <a name="458"><span class="lineNum">     458 </span>                :            : class TestFactoryImpl : public TestFactoryBase {</a>
 <a name="459"><span class="lineNum">     459 </span>                :            :  public:</a>
-<a name="460"><span class="lineNum">     460 </span>        [<span class="branchCov" title="Branch 0 was taken 16 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         16 :   Test* CreateTest() override { return new TestClass; }</span></a>
+<a name="460"><span class="lineNum">     460 </span>        [<span class="branchCov" title="Branch 0 was taken 17 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         17 :   Test* CreateTest() override { return new TestClass; }</span></a>
 <a name="461"><span class="lineNum">     461 </span>                :            : };</a>
 <a name="462"><span class="lineNum">     462 </span>                :            : </a>
 <a name="463"><span class="lineNum">     463 </span>                :            : #if GTEST_OS_WINDOWS</a>
@@ -549,8 +549,8 @@
 <a name="478"><span class="lineNum">     478 </span>                :            : using TearDownTestSuiteFunc = void (*)();</a>
 <a name="479"><span class="lineNum">     479 </span>                :            : </a>
 <a name="480"><span class="lineNum">     480 </span>                :            : struct CodeLocation {</a>
-<a name="481"><span class="lineNum">     481 </span>                :<span class="lineCov">         16 :   CodeLocation(const std::string&amp; a_file, int a_line)</span></a>
-<a name="482"><span class="lineNum">     482 </span>                :<span class="lineCov">         16 :       : file(a_file), line(a_line) {}</span></a>
+<a name="481"><span class="lineNum">     481 </span>                :<span class="lineCov">         17 :   CodeLocation(const std::string&amp; a_file, int a_line)</span></a>
+<a name="482"><span class="lineNum">     482 </span>                :<span class="lineCov">         17 :       : file(a_file), line(a_line) {}</span></a>
 <a name="483"><span class="lineNum">     483 </span>                :            : </a>
 <a name="484"><span class="lineNum">     484 </span>                :            :   std::string file;</a>
 <a name="485"><span class="lineNum">     485 </span>                :            :   int line;</a>
@@ -562,9 +562,9 @@
 <a name="491"><span class="lineNum">     491 </span>                :            : // Utility functions to help SuiteApiResolver</a>
 <a name="492"><span class="lineNum">     492 </span>                :            : using SetUpTearDownSuiteFuncType = void (*)();</a>
 <a name="493"><span class="lineNum">     493 </span>                :            : </a>
-<a name="494"><span class="lineNum">     494 </span>                :<span class="lineCov">         64 : inline SetUpTearDownSuiteFuncType GetNotDefaultOrNull(</span></a>
+<a name="494"><span class="lineNum">     494 </span>                :<span class="lineCov">         68 : inline SetUpTearDownSuiteFuncType GetNotDefaultOrNull(</span></a>
 <a name="495"><span class="lineNum">     495 </span>                :            :     SetUpTearDownSuiteFuncType a, SetUpTearDownSuiteFuncType def) {</a>
-<a name="496"><span class="lineNum">     496 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 64 times"> + </span>]:<span class="lineCov">         64 :   return a == def ? nullptr : a;</span></a>
+<a name="496"><span class="lineNum">     496 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 68 times"> + </span>]:<span class="lineCov">         68 :   return a == def ? nullptr : a;</span></a>
 <a name="497"><span class="lineNum">     497 </span>                :            : }</a>
 <a name="498"><span class="lineNum">     498 </span>                :            : </a>
 <a name="499"><span class="lineNum">     499 </span>                :            : template &lt;typename T&gt;</a>
@@ -577,40 +577,40 @@
 <a name="506"><span class="lineNum">     506 </span>                :            :   using Test =</a>
 <a name="507"><span class="lineNum">     507 </span>                :            :       typename std::conditional&lt;sizeof(T) != 0, ::testing::Test, void&gt;::type;</a>
 <a name="508"><span class="lineNum">     508 </span>                :            : </a>
-<a name="509"><span class="lineNum">     509 </span>                :<span class="lineCov">         16 :   static SetUpTearDownSuiteFuncType GetSetUpCaseOrSuite(const char* filename,</span></a>
+<a name="509"><span class="lineNum">     509 </span>                :<span class="lineCov">         17 :   static SetUpTearDownSuiteFuncType GetSetUpCaseOrSuite(const char* filename,</span></a>
 <a name="510"><span class="lineNum">     510 </span>                :            :                                                         int line_num) {</a>
 <a name="511"><span class="lineNum">     511 </span>                :            :     SetUpTearDownSuiteFuncType test_case_fp =</a>
-<a name="512"><span class="lineNum">     512 </span>                :<span class="lineCov">         16 :         GetNotDefaultOrNull(&amp;T::SetUpTestCase, &amp;Test::SetUpTestCase);</span></a>
+<a name="512"><span class="lineNum">     512 </span>                :<span class="lineCov">         17 :         GetNotDefaultOrNull(&amp;T::SetUpTestCase, &amp;Test::SetUpTestCase);</span></a>
 <a name="513"><span class="lineNum">     513 </span>                :            :     SetUpTearDownSuiteFuncType test_suite_fp =</a>
-<a name="514"><span class="lineNum">     514 </span>                :<span class="lineCov">         16 :         GetNotDefaultOrNull(&amp;T::SetUpTestSuite, &amp;Test::SetUpTestSuite);</span></a>
+<a name="514"><span class="lineNum">     514 </span>                :<span class="lineCov">         17 :         GetNotDefaultOrNull(&amp;T::SetUpTestSuite, &amp;Test::SetUpTestSuite);</span></a>
 <a name="515"><span class="lineNum">     515 </span>                :            : </a>
-<a name="516"><span class="lineNum">     516 </span>  [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 16 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span> :<span class="lineCov">         16 :     GTEST_CHECK_(!test_case_fp || !test_suite_fp)</span></a>
-<span class="lineNum">         </span>         <span class="branchNoCov" title="Branch 4 was not taken"> - </span><span class="branchCov" title="Branch 5 was taken 16 times"> + </span>]
+<a name="516"><span class="lineNum">     516 </span>  [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 17 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span> :<span class="lineCov">         17 :     GTEST_CHECK_(!test_case_fp || !test_suite_fp)</span></a>
+<span class="lineNum">         </span>         <span class="branchNoCov" title="Branch 4 was not taken"> - </span><span class="branchCov" title="Branch 5 was taken 17 times"> + </span>]
 <a name="517"><span class="lineNum">     517 </span>                :            :         &lt;&lt; &quot;Test can not provide both SetUpTestSuite and SetUpTestCase, please &quot;</a>
 <a name="518"><span class="lineNum">     518 </span>                :            :            &quot;make sure there is only one present at &quot;</a>
 <a name="519"><span class="lineNum">     519 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span> :<span class="lineNoCov">          0 :         &lt;&lt; filename &lt;&lt; &quot;:&quot; &lt;&lt; line_num;</span></a>
 <span class="lineNum">         </span><span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span><span class="branchNoExec" title="Branch 6 was not executed"> # </span><span class="branchNoExec" title="Branch 7 was not executed"> # </span><span class="branchNoExec" title="Branch 8 was not executed"> # </span> 
 <span class="lineNum">         </span>            <span class="branchNoExec" title="Branch 9 was not executed"> # </span>]
 <a name="520"><span class="lineNum">     520 </span>                :            : </a>
-<a name="521"><span class="lineNum">     521 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 16 times"> + </span>]:<span class="lineCov">         16 :     return test_case_fp != nullptr ? test_case_fp : test_suite_fp;</span></a>
+<a name="521"><span class="lineNum">     521 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 17 times"> + </span>]:<span class="lineCov">         17 :     return test_case_fp != nullptr ? test_case_fp : test_suite_fp;</span></a>
 <a name="522"><span class="lineNum">     522 </span>                :            :   }</a>
 <a name="523"><span class="lineNum">     523 </span>                :            : </a>
-<a name="524"><span class="lineNum">     524 </span>                :<span class="lineCov">         16 :   static SetUpTearDownSuiteFuncType GetTearDownCaseOrSuite(const char* filename,</span></a>
+<a name="524"><span class="lineNum">     524 </span>                :<span class="lineCov">         17 :   static SetUpTearDownSuiteFuncType GetTearDownCaseOrSuite(const char* filename,</span></a>
 <a name="525"><span class="lineNum">     525 </span>                :            :                                                            int line_num) {</a>
 <a name="526"><span class="lineNum">     526 </span>                :            :     SetUpTearDownSuiteFuncType test_case_fp =</a>
-<a name="527"><span class="lineNum">     527 </span>                :<span class="lineCov">         16 :         GetNotDefaultOrNull(&amp;T::TearDownTestCase, &amp;Test::TearDownTestCase);</span></a>
+<a name="527"><span class="lineNum">     527 </span>                :<span class="lineCov">         17 :         GetNotDefaultOrNull(&amp;T::TearDownTestCase, &amp;Test::TearDownTestCase);</span></a>
 <a name="528"><span class="lineNum">     528 </span>                :            :     SetUpTearDownSuiteFuncType test_suite_fp =</a>
-<a name="529"><span class="lineNum">     529 </span>                :<span class="lineCov">         16 :         GetNotDefaultOrNull(&amp;T::TearDownTestSuite, &amp;Test::TearDownTestSuite);</span></a>
+<a name="529"><span class="lineNum">     529 </span>                :<span class="lineCov">         17 :         GetNotDefaultOrNull(&amp;T::TearDownTestSuite, &amp;Test::TearDownTestSuite);</span></a>
 <a name="530"><span class="lineNum">     530 </span>                :            : </a>
-<a name="531"><span class="lineNum">     531 </span>  [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 16 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span> :<span class="lineCov">         16 :     GTEST_CHECK_(!test_case_fp || !test_suite_fp)</span></a>
-<span class="lineNum">         </span>         <span class="branchNoCov" title="Branch 4 was not taken"> - </span><span class="branchCov" title="Branch 5 was taken 16 times"> + </span>]
+<a name="531"><span class="lineNum">     531 </span>  [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 17 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span> :<span class="lineCov">         17 :     GTEST_CHECK_(!test_case_fp || !test_suite_fp)</span></a>
+<span class="lineNum">         </span>         <span class="branchNoCov" title="Branch 4 was not taken"> - </span><span class="branchCov" title="Branch 5 was taken 17 times"> + </span>]
 <a name="532"><span class="lineNum">     532 </span>                :            :         &lt;&lt; &quot;Test can not provide both TearDownTestSuite and TearDownTestCase,&quot;</a>
 <a name="533"><span class="lineNum">     533 </span>                :            :            &quot; please make sure there is only one present at&quot;</a>
 <a name="534"><span class="lineNum">     534 </span>  [<span class="branchNoExec" title="Branch 0 was not executed"> # </span><span class="branchNoExec" title="Branch 1 was not executed"> # </span><span class="branchNoExec" title="Branch 2 was not executed"> # </span><span class="branchNoExec" title="Branch 3 was not executed"> # </span> :<span class="lineNoCov">          0 :         &lt;&lt; filename &lt;&lt; &quot;:&quot; &lt;&lt; line_num;</span></a>
 <span class="lineNum">         </span><span class="branchNoExec" title="Branch 4 was not executed"> # </span><span class="branchNoExec" title="Branch 5 was not executed"> # </span><span class="branchNoExec" title="Branch 6 was not executed"> # </span><span class="branchNoExec" title="Branch 7 was not executed"> # </span><span class="branchNoExec" title="Branch 8 was not executed"> # </span> 
 <span class="lineNum">         </span>            <span class="branchNoExec" title="Branch 9 was not executed"> # </span>]
 <a name="535"><span class="lineNum">     535 </span>                :            : </a>
-<a name="536"><span class="lineNum">     536 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 16 times"> + </span>]:<span class="lineCov">         16 :     return test_case_fp != nullptr ? test_case_fp : test_suite_fp;</span></a>
+<a name="536"><span class="lineNum">     536 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 17 times"> + </span>]:<span class="lineCov">         17 :     return test_case_fp != nullptr ? test_case_fp : test_suite_fp;</span></a>
 <a name="537"><span class="lineNum">     537 </span>                :            :   }</a>
 <a name="538"><span class="lineNum">     538 </span>                :            : };</a>
 <a name="539"><span class="lineNum">     539 </span>                :            : </a>
@@ -897,8 +897,8 @@
 <a name="820"><span class="lineNum">     820 </span>                :            : // variable declared in a conditional expression always being NULL in</a>
 <a name="821"><span class="lineNum">     821 </span>                :            : // the else branch.</a>
 <a name="822"><span class="lineNum">     822 </span>                :            : struct GTEST_API_ ConstCharPtr {</a>
-<a name="823"><span class="lineNum">     823 </span>                :<span class="lineCov">         10 :   ConstCharPtr(const char* str) : value(str) {}</span></a>
-<a name="824"><span class="lineNum">     824 </span>                :<span class="lineCov">         10 :   operator bool() const { return true; }</span></a>
+<a name="823"><span class="lineNum">     823 </span>                :<span class="lineCov">         14 :   ConstCharPtr(const char* str) : value(str) {}</span></a>
+<a name="824"><span class="lineNum">     824 </span>                :<span class="lineCov">         14 :   operator bool() const { return true; }</span></a>
 <a name="825"><span class="lineNum">     825 </span>                :            :   const char* value;</a>
 <a name="826"><span class="lineNum">     826 </span>                :            : };</a>
 <a name="827"><span class="lineNum">     827 </span>                :            : </a>

@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2020-12-19 01:11:42</td>
+            <td class="headerValue">2020-12-19 20:56:12</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">4</td>
@@ -253,7 +253,7 @@
 <a name="182"><span class="lineNum">     182 </span>                :            : #if __cplusplus &lt; 201103L</a>
 <a name="183"><span class="lineNum">     183 </span>                :            :       map() : _M_t() { }</a>
 <a name="184"><span class="lineNum">     184 </span>                :            : #else</a>
-<a name="185"><span class="lineNum">     185 </span>                :<span class="lineCov">          3 :       map() = default;</span></a>
+<a name="185"><span class="lineNum">     185 </span>                :<span class="lineCov">          6 :       map() = default;</span></a>
 <a name="186"><span class="lineNum">     186 </span>                :            : #endif</a>
 <a name="187"><span class="lineNum">     187 </span>                :            : </a>
 <a name="188"><span class="lineNum">     188 </span>                :            :       /**</a>
@@ -370,7 +370,7 @@
 <a name="299"><span class="lineNum">     299 </span>                :            :        *  themselves are pointers, the pointed-to memory is not touched in any</a>
 <a name="300"><span class="lineNum">     300 </span>                :            :        *  way.  Managing the pointer is the user's responsibility.</a>
 <a name="301"><span class="lineNum">     301 </span>                :            :        */</a>
-<a name="302"><span class="lineNum">     302 </span>                :<span class="lineCov">          3 :       ~map() = default;</span></a>
+<a name="302"><span class="lineNum">     302 </span>                :<span class="lineCov">          6 :       ~map() = default;</span></a>
 <a name="303"><span class="lineNum">     303 </span>                :            : #endif</a>
 <a name="304"><span class="lineNum">     304 </span>                :            : </a>
 <a name="305"><span class="lineNum">     305 </span>                :            :       /**</a>
@@ -644,8 +644,8 @@
 <a name="573"><span class="lineNum">     573 </span>                :            :        */</a>
 <a name="574"><span class="lineNum">     574 </span>                :            :       template&lt;typename... _Args&gt;</a>
 <a name="575"><span class="lineNum">     575 </span>                :            :         std::pair&lt;iterator, bool&gt;</a>
-<a name="576"><span class="lineNum">     576 </span>                :<span class="lineCov">         27 :         emplace(_Args&amp;&amp;... __args)</span></a>
-<a name="577"><span class="lineNum">     577 </span>                :<span class="lineCov">         27 :         { return _M_t._M_emplace_unique(std::forward&lt;_Args&gt;(__args)...); }</span></a>
+<a name="576"><span class="lineNum">     576 </span>                :<span class="lineCov">         72 :         emplace(_Args&amp;&amp;... __args)</span></a>
+<a name="577"><span class="lineNum">     577 </span>                :<span class="lineCov">         72 :         { return _M_t._M_emplace_unique(std::forward&lt;_Args&gt;(__args)...); }</span></a>
 <a name="578"><span class="lineNum">     578 </span>                :            : </a>
 <a name="579"><span class="lineNum">     579 </span>                :            :       /**</a>
 <a name="580"><span class="lineNum">     580 </span>                :            :        *  @brief Attempts to build and insert a std::pair into the %map.</a>

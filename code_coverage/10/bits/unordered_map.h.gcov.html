@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2020-12-19 01:11:42</td>
+            <td class="headerValue">2020-12-19 20:56:12</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">24</td>
@@ -209,7 +209,7 @@
 <a name="138"><span class="lineNum">     138 </span>                :            :       //construct/destroy/copy</a>
 <a name="139"><span class="lineNum">     139 </span>                :            : </a>
 <a name="140"><span class="lineNum">     140 </span>                :            :       /// Default constructor.</a>
-<a name="141"><span class="lineNum">     141 </span>                :<span class="lineCov">         32 :       unordered_map() = default;</span></a>
+<a name="141"><span class="lineNum">     141 </span>                :<span class="lineCov">         47 :       unordered_map() = default;</span></a>
 <a name="142"><span class="lineNum">     142 </span>                :            : </a>
 <a name="143"><span class="lineNum">     143 </span>                :            :       /**</a>
 <a name="144"><span class="lineNum">     144 </span>                :            :        *  @brief  Default constructor creates no elements.</a>
@@ -1015,8 +1015,8 @@
 <a name="944"><span class="lineNum">     944 </span>                :            :        *  @return  True if there is any element with the specified key.</a>
 <a name="945"><span class="lineNum">     945 </span>                :            :        */</a>
 <a name="946"><span class="lineNum">     946 </span>                :            :       bool</a>
-<a name="947"><span class="lineNum">     947 </span>                :<span class="lineCov">        137 :       contains(const key_type&amp; __x) const</span></a>
-<a name="948"><span class="lineNum">     948 </span>        [<span class="branchCov" title="Branch 0 was taken 137 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        137 :       { return _M_h.find(__x) != _M_h.end(); }</span></a>
+<a name="947"><span class="lineNum">     947 </span>                :<span class="lineCov">        140 :       contains(const key_type&amp; __x) const</span></a>
+<a name="948"><span class="lineNum">     948 </span>        [<span class="branchCov" title="Branch 0 was taken 140 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        140 :       { return _M_h.find(__x) != _M_h.end(); }</span></a>
 <a name="949"><span class="lineNum">     949 </span>                :            : #endif</a>
 <a name="950"><span class="lineNum">     950 </span>                :            : </a>
 <a name="951"><span class="lineNum">     951 </span>                :            :       //@{</a>
@@ -1051,8 +1051,8 @@
 <a name="980"><span class="lineNum">     980 </span>                :            :        *  Lookup requires constant time.</a>
 <a name="981"><span class="lineNum">     981 </span>                :            :        */</a>
 <a name="982"><span class="lineNum">     982 </span>                :            :       mapped_type&amp;</a>
-<a name="983"><span class="lineNum">     983 </span>                :<span class="lineCov">        459 :       operator[](const key_type&amp; __k)</span></a>
-<a name="984"><span class="lineNum">     984 </span>                :<span class="lineCov">        459 :       { return _M_h[__k]; }</span></a>
+<a name="983"><span class="lineNum">     983 </span>                :<span class="lineCov">        581 :       operator[](const key_type&amp; __k)</span></a>
+<a name="984"><span class="lineNum">     984 </span>                :<span class="lineCov">        581 :       { return _M_h[__k]; }</span></a>
 <a name="985"><span class="lineNum">     985 </span>                :            : </a>
 <a name="986"><span class="lineNum">     986 </span>                :            :       mapped_type&amp;</a>
 <a name="987"><span class="lineNum">     987 </span>                :<span class="lineCov">          3 :       operator[](key_type&amp;&amp; __k)</span></a>
@@ -1355,7 +1355,7 @@
 <a name="1284"><span class="lineNum">    1284 </span>                :            :       //construct/destroy/copy</a>
 <a name="1285"><span class="lineNum">    1285 </span>                :            : </a>
 <a name="1286"><span class="lineNum">    1286 </span>                :            :       /// Default constructor.</a>
-<a name="1287"><span class="lineNum">    1287 </span>                :<span class="lineCov">         12 :       unordered_multimap() = default;</span></a>
+<a name="1287"><span class="lineNum">    1287 </span>                :<span class="lineCov">         13 :       unordered_multimap() = default;</span></a>
 <a name="1288"><span class="lineNum">    1288 </span>                :            : </a>
 <a name="1289"><span class="lineNum">    1289 </span>                :            :       /**</a>
 <a name="1290"><span class="lineNum">    1290 </span>                :            :        *  @brief  Default constructor creates no elements.</a>
@@ -1547,8 +1547,8 @@
 <a name="1476"><span class="lineNum">    1476 </span>                :            :        *  element in the %unordered_multimap.</a>
 <a name="1477"><span class="lineNum">    1477 </span>                :            :        */</a>
 <a name="1478"><span class="lineNum">    1478 </span>                :            :       const_iterator</a>
-<a name="1479"><span class="lineNum">    1479 </span>                :<span class="lineCov">         28 :       begin() const noexcept</span></a>
-<a name="1480"><span class="lineNum">    1480 </span>                :<span class="lineCov">         28 :       { return _M_h.begin(); }</span></a>
+<a name="1479"><span class="lineNum">    1479 </span>                :<span class="lineCov">         35 :       begin() const noexcept</span></a>
+<a name="1480"><span class="lineNum">    1480 </span>                :<span class="lineCov">         35 :       { return _M_h.begin(); }</span></a>
 <a name="1481"><span class="lineNum">    1481 </span>                :            : </a>
 <a name="1482"><span class="lineNum">    1482 </span>                :            :       const_iterator</a>
 <a name="1483"><span class="lineNum">    1483 </span>                :            :       cbegin() const noexcept</a>
@@ -1569,8 +1569,8 @@
 <a name="1498"><span class="lineNum">    1498 </span>                :            :        *  element in the %unordered_multimap.</a>
 <a name="1499"><span class="lineNum">    1499 </span>                :            :        */</a>
 <a name="1500"><span class="lineNum">    1500 </span>                :            :       const_iterator</a>
-<a name="1501"><span class="lineNum">    1501 </span>                :<span class="lineCov">         28 :       end() const noexcept</span></a>
-<a name="1502"><span class="lineNum">    1502 </span>                :<span class="lineCov">         28 :       { return _M_h.end(); }</span></a>
+<a name="1501"><span class="lineNum">    1501 </span>                :<span class="lineCov">         35 :       end() const noexcept</span></a>
+<a name="1502"><span class="lineNum">    1502 </span>                :<span class="lineCov">         35 :       { return _M_h.end(); }</span></a>
 <a name="1503"><span class="lineNum">    1503 </span>                :            : </a>
 <a name="1504"><span class="lineNum">    1504 </span>                :            :       const_iterator</a>
 <a name="1505"><span class="lineNum">    1505 </span>                :            :       cend() const noexcept</a>
@@ -1596,8 +1596,8 @@
 <a name="1525"><span class="lineNum">    1525 </span>                :            :        */</a>
 <a name="1526"><span class="lineNum">    1526 </span>                :            :       template&lt;typename... _Args&gt;</a>
 <a name="1527"><span class="lineNum">    1527 </span>                :            :         iterator</a>
-<a name="1528"><span class="lineNum">    1528 </span>                :<span class="lineCov">         26 :         emplace(_Args&amp;&amp;... __args)</span></a>
-<a name="1529"><span class="lineNum">    1529 </span>                :<span class="lineCov">         26 :         { return _M_h.emplace(std::forward&lt;_Args&gt;(__args)...); }</span></a>
+<a name="1528"><span class="lineNum">    1528 </span>                :<span class="lineCov">         36 :         emplace(_Args&amp;&amp;... __args)</span></a>
+<a name="1529"><span class="lineNum">    1529 </span>                :<span class="lineCov">         36 :         { return _M_h.emplace(std::forward&lt;_Args&gt;(__args)...); }</span></a>
 <a name="1530"><span class="lineNum">    1530 </span>                :            : </a>
 <a name="1531"><span class="lineNum">    1531 </span>                :            :       /**</a>
 <a name="1532"><span class="lineNum">    1532 </span>                :            :        *  @brief Attempts to build and insert a std::pair into the</a>
@@ -1922,8 +1922,8 @@
 <a name="1851"><span class="lineNum">    1851 </span>                :            :       { return _M_h.equal_range(__x); }</a>
 <a name="1852"><span class="lineNum">    1852 </span>                :            : </a>
 <a name="1853"><span class="lineNum">    1853 </span>                :            :       std::pair&lt;const_iterator, const_iterator&gt;</a>
-<a name="1854"><span class="lineNum">    1854 </span>                :<span class="lineCov">         59 :       equal_range(const key_type&amp; __x) const</span></a>
-<a name="1855"><span class="lineNum">    1855 </span>                :<span class="lineCov">         59 :       { return _M_h.equal_range(__x); }</span></a>
+<a name="1854"><span class="lineNum">    1854 </span>                :<span class="lineCov">        181 :       equal_range(const key_type&amp; __x) const</span></a>
+<a name="1855"><span class="lineNum">    1855 </span>                :<span class="lineCov">        181 :       { return _M_h.equal_range(__x); }</span></a>
 <a name="1856"><span class="lineNum">    1856 </span>                :            :       //@}</a>
 <a name="1857"><span class="lineNum">    1857 </span>                :            : </a>
 <a name="1858"><span class="lineNum">    1858 </span>                :            :       // bucket interface.</a>

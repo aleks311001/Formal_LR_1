@@ -18,16 +18,16 @@ TEST_F(TestGrammar, testAddRule) {
 
 TEST(TestSituation, testOperators) {
     Situation<char> situation1 = {.left = 'S',
-            .right = "SaSb",
-            .point = 0,
-            .first = 'a'};
+                                  .right = "SaSb",
+                                  .point = 0,
+                                  .first = 'a'};
 
     ASSERT_EQ(situation1, situation1);
 
     Situation<char> situation2 = {.left = 'S',
-            .right = "SbSb",
-            .point = 0,
-            .first = 'a'};
+                                  .right = "SbSb",
+                                  .point = 0,
+                                  .first = 'a'};
 
     ASSERT_NE(situation1, situation2);
     ASSERT_LT(situation1, situation2);
@@ -70,6 +70,10 @@ TEST(TestSituation, testGetSymbol) {
     ASSERT_EQ(situation.getNext().getSymbol(), 'a');
 }
 
+TEST_F(TestNode, testAddSituation) {
+    testAddSituation();
+}
+
 TEST_F(TestNode, testAddNextSituations) {
     testAddNextSituation();
 }
@@ -95,7 +99,9 @@ TEST_F(TestAlgo, testGetFirstFunction) {
 }
 
 TEST_F(TestAlgo, testFit) {
-    testFit();
+    testFitNoThrow();
+    testFitThrowPalindroms();
+    testFitThrow();
 }
 
 TEST_F(TestAlgo, testBacktrace) {

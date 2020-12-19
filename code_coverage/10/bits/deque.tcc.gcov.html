@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2020-12-19 01:11:42</td>
+            <td class="headerValue">2020-12-19 20:56:12</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">1</td>
@@ -232,21 +232,21 @@
 <a name="161"><span class="lineNum">     161 </span>                :            : #else</a>
 <a name="162"><span class="lineNum">     162 </span>                :            :       void</a>
 <a name="163"><span class="lineNum">     163 </span>                :            : #endif</a>
-<a name="164"><span class="lineNum">     164 </span>                :<span class="lineCov">          4 :       deque&lt;_Tp, _Alloc&gt;::</span></a>
+<a name="164"><span class="lineNum">     164 </span>                :<span class="lineCov">          7 :       deque&lt;_Tp, _Alloc&gt;::</span></a>
 <a name="165"><span class="lineNum">     165 </span>                :            :       emplace_back(_Args&amp;&amp;... __args)</a>
 <a name="166"><span class="lineNum">     166 </span>                :            :       {</a>
-<a name="167"><span class="lineNum">     167 </span>                :<span class="lineCov">          4 :         if (this-&gt;_M_impl._M_finish._M_cur</span></a>
-<a name="168"><span class="lineNum">     168 </span>        [<span class="branchCov" title="Branch 0 was taken 4 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          4 :             != this-&gt;_M_impl._M_finish._M_last - 1)</span></a>
+<a name="167"><span class="lineNum">     167 </span>                :<span class="lineCov">          7 :         if (this-&gt;_M_impl._M_finish._M_cur</span></a>
+<a name="168"><span class="lineNum">     168 </span>        [<span class="branchCov" title="Branch 0 was taken 7 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          7 :             != this-&gt;_M_impl._M_finish._M_last - 1)</span></a>
 <a name="169"><span class="lineNum">     169 </span>                :            :           {</a>
-<a name="170"><span class="lineNum">     170 </span>                :<span class="lineCov">          4 :             _Alloc_traits::construct(this-&gt;_M_impl,</span></a>
+<a name="170"><span class="lineNum">     170 </span>                :<span class="lineCov">          7 :             _Alloc_traits::construct(this-&gt;_M_impl,</span></a>
 <a name="171"><span class="lineNum">     171 </span>                :            :                                      this-&gt;_M_impl._M_finish._M_cur,</a>
 <a name="172"><span class="lineNum">     172 </span>                :            :                                      std::forward&lt;_Args&gt;(__args)...);</a>
-<a name="173"><span class="lineNum">     173 </span>                :<span class="lineCov">          4 :             ++this-&gt;_M_impl._M_finish._M_cur;</span></a>
+<a name="173"><span class="lineNum">     173 </span>                :<span class="lineCov">          7 :             ++this-&gt;_M_impl._M_finish._M_cur;</span></a>
 <a name="174"><span class="lineNum">     174 </span>                :            :           }</a>
 <a name="175"><span class="lineNum">     175 </span>                :            :         else</a>
 <a name="176"><span class="lineNum">     176 </span>                :<span class="lineNoCov">          0 :           _M_push_back_aux(std::forward&lt;_Args&gt;(__args)...);</span></a>
 <a name="177"><span class="lineNum">     177 </span>                :            : #if __cplusplus &gt; 201402L</a>
-<a name="178"><span class="lineNum">     178 </span>                :<span class="lineCov">          4 :         return back();</span></a>
+<a name="178"><span class="lineNum">     178 </span>                :<span class="lineCov">          7 :         return back();</span></a>
 <a name="179"><span class="lineNum">     179 </span>                :            : #endif</a>
 <a name="180"><span class="lineNum">     180 </span>                :            :       }</a>
 <a name="181"><span class="lineNum">     181 </span>                :            : #endif</a>

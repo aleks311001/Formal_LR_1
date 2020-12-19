@@ -37,7 +37,7 @@
           </tr>
           <tr>
             <td class="headerItem">Date:</td>
-            <td class="headerValue">2020-12-19 01:11:42</td>
+            <td class="headerValue">2020-12-19 20:56:12</td>
             <td></td>
             <td class="headerItem">Functions:</td>
             <td class="headerCovTableEntry">9</td>
@@ -200,28 +200,28 @@
 <a name="129"><span class="lineNum">     129 </span>                :            : </a>
 <a name="130"><span class="lineNum">     130 </span>                :            :   template&lt;typename _CharT, typename _Traits, typename _Alloc&gt;</a>
 <a name="131"><span class="lineNum">     131 </span>                :            :     typename basic_string&lt;_CharT, _Traits, _Alloc&gt;::pointer</a>
-<a name="132"><span class="lineNum">     132 </span>                :<span class="lineCov">        399 :     basic_string&lt;_CharT, _Traits, _Alloc&gt;::</span></a>
+<a name="132"><span class="lineNum">     132 </span>                :<span class="lineCov">        425 :     basic_string&lt;_CharT, _Traits, _Alloc&gt;::</span></a>
 <a name="133"><span class="lineNum">     133 </span>                :            :     _M_create(size_type&amp; __capacity, size_type __old_capacity)</a>
 <a name="134"><span class="lineNum">     134 </span>                :            :     {</a>
 <a name="135"><span class="lineNum">     135 </span>                :            :       // _GLIBCXX_RESOLVE_LIB_DEFECTS</a>
 <a name="136"><span class="lineNum">     136 </span>                :            :       // 83.  String::npos vs. string::max_size()</a>
-<a name="137"><span class="lineNum">     137 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 399 times"> + </span>]:<span class="lineCov">        399 :       if (__capacity &gt; max_size())</span></a>
+<a name="137"><span class="lineNum">     137 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 425 times"> + </span>]:<span class="lineCov">        425 :       if (__capacity &gt; max_size())</span></a>
 <a name="138"><span class="lineNum">     138 </span>                :<span class="lineNoCov">          0 :         std::__throw_length_error(__N(&quot;basic_string::_M_create&quot;));</span></a>
 <a name="139"><span class="lineNum">     139 </span>                :            : </a>
 <a name="140"><span class="lineNum">     140 </span>                :            :       // The below implements an exponential growth policy, necessary to</a>
 <a name="141"><span class="lineNum">     141 </span>                :            :       // meet amortized linear time requirements of the library: see</a>
 <a name="142"><span class="lineNum">     142 </span>                :            :       // http://gcc.gnu.org/ml/libstdc++/2001-07/msg00085.html.</a>
-<a name="143"><span class="lineNum">     143 </span>  [<span class="branchCov" title="Branch 0 was taken 399 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 189 times"> + </span><span class="branchCov" title="Branch 3 was taken 210 times"> + </span>]:<span class="lineCov">        399 :       if (__capacity &gt; __old_capacity &amp;&amp; __capacity &lt; 2 * __old_capacity)</span></a>
+<a name="143"><span class="lineNum">     143 </span>  [<span class="branchCov" title="Branch 0 was taken 425 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 200 times"> + </span><span class="branchCov" title="Branch 3 was taken 225 times"> + </span>]:<span class="lineCov">        425 :       if (__capacity &gt; __old_capacity &amp;&amp; __capacity &lt; 2 * __old_capacity)</span></a>
 <a name="144"><span class="lineNum">     144 </span>                :            :         {</a>
-<a name="145"><span class="lineNum">     145 </span>                :<span class="lineCov">        189 :           __capacity = 2 * __old_capacity;</span></a>
+<a name="145"><span class="lineNum">     145 </span>                :<span class="lineCov">        200 :           __capacity = 2 * __old_capacity;</span></a>
 <a name="146"><span class="lineNum">     146 </span>                :            :           // Never allocate a string bigger than max_size.</a>
-<a name="147"><span class="lineNum">     147 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 189 times"> + </span>]:<span class="lineCov">        189 :           if (__capacity &gt; max_size())</span></a>
+<a name="147"><span class="lineNum">     147 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 200 times"> + </span>]:<span class="lineCov">        200 :           if (__capacity &gt; max_size())</span></a>
 <a name="148"><span class="lineNum">     148 </span>                :<span class="lineNoCov">          0 :             __capacity = max_size();</span></a>
 <a name="149"><span class="lineNum">     149 </span>                :            :         }</a>
 <a name="150"><span class="lineNum">     150 </span>                :            : </a>
 <a name="151"><span class="lineNum">     151 </span>                :            :       // NB: Need an array of char_type[__capacity], plus a terminating</a>
 <a name="152"><span class="lineNum">     152 </span>                :            :       // null char_type() element.</a>
-<a name="153"><span class="lineNum">     153 </span>                :<span class="lineCov">        399 :       return _Alloc_traits::allocate(_M_get_allocator(), __capacity + 1);</span></a>
+<a name="153"><span class="lineNum">     153 </span>                :<span class="lineCov">        425 :       return _Alloc_traits::allocate(_M_get_allocator(), __capacity + 1);</span></a>
 <a name="154"><span class="lineNum">     154 </span>                :            :     }</a>
 <a name="155"><span class="lineNum">     155 </span>                :            : </a>
 <a name="156"><span class="lineNum">     156 </span>                :            :   // NB: This is the special case for Input Iterators, used in</a>
@@ -274,64 +274,64 @@
 <a name="203"><span class="lineNum">     203 </span>                :            :   template&lt;typename _CharT, typename _Traits, typename _Alloc&gt;</a>
 <a name="204"><span class="lineNum">     204 </span>                :            :     template&lt;typename _InIterator&gt;</a>
 <a name="205"><span class="lineNum">     205 </span>                :            :       void</a>
-<a name="206"><span class="lineNum">     206 </span>                :<span class="lineCov">        817 :       basic_string&lt;_CharT, _Traits, _Alloc&gt;::</span></a>
+<a name="206"><span class="lineNum">     206 </span>                :<span class="lineCov">       2369 :       basic_string&lt;_CharT, _Traits, _Alloc&gt;::</span></a>
 <a name="207"><span class="lineNum">     207 </span>                :            :       _M_construct(_InIterator __beg, _InIterator __end,</a>
 <a name="208"><span class="lineNum">     208 </span>                :            :                    std::forward_iterator_tag)</a>
 <a name="209"><span class="lineNum">     209 </span>                :            :       {</a>
 <a name="210"><span class="lineNum">     210 </span>                :            :         // NB: Not required, but considered best practice.</a>
-<a name="211"><span class="lineNum">     211 </span>  [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 817 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span> :<span class="lineCov">        817 :         if (__gnu_cxx::__is_null_pointer(__beg) &amp;&amp; __beg != __end)</span></a>
-<span class="lineNum">         </span>         <span class="branchNoCov" title="Branch 4 was not taken"> - </span><span class="branchCov" title="Branch 5 was taken 817 times"> + </span>]
+<a name="211"><span class="lineNum">     211 </span>  [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 2369 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span> :<span class="lineCov">       2369 :         if (__gnu_cxx::__is_null_pointer(__beg) &amp;&amp; __beg != __end)</span></a>
+<span class="lineNum">         </span>         <span class="branchNoCov" title="Branch 4 was not taken"> - </span><span class="branchCov" title="Branch 5 was taken 2369 times"> + </span>]
 <a name="212"><span class="lineNum">     212 </span>                :<span class="lineNoCov">          0 :           std::__throw_logic_error(__N(&quot;basic_string::&quot;</span></a>
 <a name="213"><span class="lineNum">     213 </span>                :            :                                        &quot;_M_construct null not valid&quot;));</a>
 <a name="214"><span class="lineNum">     214 </span>                :            : </a>
-<a name="215"><span class="lineNum">     215 </span>        [<span class="branchCov" title="Branch 0 was taken 817 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        817 :         size_type __dnew = static_cast&lt;size_type&gt;(std::distance(__beg, __end));</span></a>
+<a name="215"><span class="lineNum">     215 </span>        [<span class="branchCov" title="Branch 0 was taken 2369 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">       2369 :         size_type __dnew = static_cast&lt;size_type&gt;(std::distance(__beg, __end));</span></a>
 <a name="216"><span class="lineNum">     216 </span>                :            : </a>
-<a name="217"><span class="lineNum">     217 </span>        [<span class="branchCov" title="Branch 0 was taken 41 times"> + </span><span class="branchCov" title="Branch 1 was taken 776 times"> + </span>]:<span class="lineCov">        817 :         if (__dnew &gt; size_type(_S_local_capacity))</span></a>
+<a name="217"><span class="lineNum">     217 </span>        [<span class="branchCov" title="Branch 0 was taken 45 times"> + </span><span class="branchCov" title="Branch 1 was taken 2324 times"> + </span>]:<span class="lineCov">       2369 :         if (__dnew &gt; size_type(_S_local_capacity))</span></a>
 <a name="218"><span class="lineNum">     218 </span>                :            :           {</a>
-<a name="219"><span class="lineNum">     219 </span>        [<span class="branchCov" title="Branch 0 was taken 41 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         41 :             _M_data(_M_create(__dnew, size_type(0)));</span></a>
-<a name="220"><span class="lineNum">     220 </span>                :<span class="lineCov">         41 :             _M_capacity(__dnew);</span></a>
+<a name="219"><span class="lineNum">     219 </span>        [<span class="branchCov" title="Branch 0 was taken 45 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         45 :             _M_data(_M_create(__dnew, size_type(0)));</span></a>
+<a name="220"><span class="lineNum">     220 </span>                :<span class="lineCov">         45 :             _M_capacity(__dnew);</span></a>
 <a name="221"><span class="lineNum">     221 </span>                :            :           }</a>
 <a name="222"><span class="lineNum">     222 </span>                :            : </a>
 <a name="223"><span class="lineNum">     223 </span>                :            :         // Check for out_of_range and length_error exceptions.</a>
 <a name="224"><span class="lineNum">     224 </span>                :            :         __try</a>
-<a name="225"><span class="lineNum">     225 </span>                :<span class="lineCov">        817 :           { this-&gt;_S_copy_chars(_M_data(), __beg, __end); }</span></a>
+<a name="225"><span class="lineNum">     225 </span>                :<span class="lineCov">       2369 :           { this-&gt;_S_copy_chars(_M_data(), __beg, __end); }</span></a>
 <a name="226"><span class="lineNum">     226 </span>                :            :         __catch(...)</a>
 <a name="227"><span class="lineNum">     227 </span>                :            :           {</a>
 <a name="228"><span class="lineNum">     228 </span>                :            :             _M_dispose();</a>
 <a name="229"><span class="lineNum">     229 </span>                :            :             __throw_exception_again;</a>
 <a name="230"><span class="lineNum">     230 </span>                :            :           }</a>
 <a name="231"><span class="lineNum">     231 </span>                :            : </a>
-<a name="232"><span class="lineNum">     232 </span>                :<span class="lineCov">        817 :         _M_set_length(__dnew);</span></a>
-<a name="233"><span class="lineNum">     233 </span>                :<span class="lineCov">        817 :       }</span></a>
+<a name="232"><span class="lineNum">     232 </span>                :<span class="lineCov">       2369 :         _M_set_length(__dnew);</span></a>
+<a name="233"><span class="lineNum">     233 </span>                :<span class="lineCov">       2369 :       }</span></a>
 <a name="234"><span class="lineNum">     234 </span>                :            : </a>
 <a name="235"><span class="lineNum">     235 </span>                :            :   template&lt;typename _CharT, typename _Traits, typename _Alloc&gt;</a>
 <a name="236"><span class="lineNum">     236 </span>                :            :     void</a>
-<a name="237"><span class="lineNum">     237 </span>                :<span class="lineCov">         59 :     basic_string&lt;_CharT, _Traits, _Alloc&gt;::</span></a>
+<a name="237"><span class="lineNum">     237 </span>                :<span class="lineCov">         63 :     basic_string&lt;_CharT, _Traits, _Alloc&gt;::</span></a>
 <a name="238"><span class="lineNum">     238 </span>                :            :     _M_construct(size_type __n, _CharT __c)</a>
 <a name="239"><span class="lineNum">     239 </span>                :            :     {</a>
-<a name="240"><span class="lineNum">     240 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 59 times"> + </span>]:<span class="lineCov">         59 :       if (__n &gt; size_type(_S_local_capacity))</span></a>
+<a name="240"><span class="lineNum">     240 </span>        [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 63 times"> + </span>]:<span class="lineCov">         63 :       if (__n &gt; size_type(_S_local_capacity))</span></a>
 <a name="241"><span class="lineNum">     241 </span>                :            :         {</a>
 <a name="242"><span class="lineNum">     242 </span>                :<span class="lineNoCov">          0 :           _M_data(_M_create(__n, size_type(0)));</span></a>
 <a name="243"><span class="lineNum">     243 </span>                :<span class="lineNoCov">          0 :           _M_capacity(__n);</span></a>
 <a name="244"><span class="lineNum">     244 </span>                :            :         }</a>
 <a name="245"><span class="lineNum">     245 </span>                :            : </a>
-<a name="246"><span class="lineNum">     246 </span>        [<span class="branchCov" title="Branch 0 was taken 59 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         59 :       if (__n)</span></a>
-<a name="247"><span class="lineNum">     247 </span>                :<span class="lineCov">         59 :         this-&gt;_S_assign(_M_data(), __n, __c);</span></a>
+<a name="246"><span class="lineNum">     246 </span>        [<span class="branchCov" title="Branch 0 was taken 63 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">         63 :       if (__n)</span></a>
+<a name="247"><span class="lineNum">     247 </span>                :<span class="lineCov">         63 :         this-&gt;_S_assign(_M_data(), __n, __c);</span></a>
 <a name="248"><span class="lineNum">     248 </span>                :            : </a>
-<a name="249"><span class="lineNum">     249 </span>                :<span class="lineCov">         59 :       _M_set_length(__n);</span></a>
-<a name="250"><span class="lineNum">     250 </span>                :<span class="lineCov">         59 :     }</span></a>
+<a name="249"><span class="lineNum">     249 </span>                :<span class="lineCov">         63 :       _M_set_length(__n);</span></a>
+<a name="250"><span class="lineNum">     250 </span>                :<span class="lineCov">         63 :     }</span></a>
 <a name="251"><span class="lineNum">     251 </span>                :            : </a>
 <a name="252"><span class="lineNum">     252 </span>                :            :   template&lt;typename _CharT, typename _Traits, typename _Alloc&gt;</a>
 <a name="253"><span class="lineNum">     253 </span>                :            :     void</a>
-<a name="254"><span class="lineNum">     254 </span>                :<span class="lineCov">        250 :     basic_string&lt;_CharT, _Traits, _Alloc&gt;::</span></a>
+<a name="254"><span class="lineNum">     254 </span>                :<span class="lineCov">        262 :     basic_string&lt;_CharT, _Traits, _Alloc&gt;::</span></a>
 <a name="255"><span class="lineNum">     255 </span>                :            :     _M_assign(const basic_string&amp; __str)</a>
 <a name="256"><span class="lineNum">     256 </span>                :            :     {</a>
-<a name="257"><span class="lineNum">     257 </span>        [<span class="branchCov" title="Branch 0 was taken 250 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        250 :       if (this != &amp;__str)</span></a>
+<a name="257"><span class="lineNum">     257 </span>        [<span class="branchCov" title="Branch 0 was taken 262 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        262 :       if (this != &amp;__str)</span></a>
 <a name="258"><span class="lineNum">     258 </span>                :            :         {</a>
-<a name="259"><span class="lineNum">     259 </span>                :<span class="lineCov">        250 :           const size_type __rsize = __str.length();</span></a>
-<a name="260"><span class="lineNum">     260 </span>                :<span class="lineCov">        250 :           const size_type __capacity = capacity();</span></a>
+<a name="259"><span class="lineNum">     259 </span>                :<span class="lineCov">        262 :           const size_type __rsize = __str.length();</span></a>
+<a name="260"><span class="lineNum">     260 </span>                :<span class="lineCov">        262 :           const size_type __capacity = capacity();</span></a>
 <a name="261"><span class="lineNum">     261 </span>                :            : </a>
-<a name="262"><span class="lineNum">     262 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchCov" title="Branch 1 was taken 249 times"> + </span>]:<span class="lineCov">        250 :           if (__rsize &gt; __capacity)</span></a>
+<a name="262"><span class="lineNum">     262 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchCov" title="Branch 1 was taken 261 times"> + </span>]:<span class="lineCov">        262 :           if (__rsize &gt; __capacity)</span></a>
 <a name="263"><span class="lineNum">     263 </span>                :            :             {</a>
 <a name="264"><span class="lineNum">     264 </span>                :<span class="lineCov">          1 :               size_type __new_capacity = __rsize;</span></a>
 <a name="265"><span class="lineNum">     265 </span>        [<span class="branchCov" title="Branch 0 was taken 1 time"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          1 :               pointer __tmp = _M_create(__new_capacity, __capacity);</span></a>
@@ -340,12 +340,12 @@
 <a name="268"><span class="lineNum">     268 </span>                :<span class="lineCov">          1 :               _M_capacity(__new_capacity);</span></a>
 <a name="269"><span class="lineNum">     269 </span>                :            :             }</a>
 <a name="270"><span class="lineNum">     270 </span>                :            : </a>
-<a name="271"><span class="lineNum">     271 </span>        [<span class="branchCov" title="Branch 0 was taken 126 times"> + </span><span class="branchCov" title="Branch 1 was taken 124 times"> + </span>]:<span class="lineCov">        250 :           if (__rsize)</span></a>
-<a name="272"><span class="lineNum">     272 </span>                :<span class="lineCov">        126 :             this-&gt;_S_copy(_M_data(), __str._M_data(), __rsize);</span></a>
+<a name="271"><span class="lineNum">     271 </span>        [<span class="branchCov" title="Branch 0 was taken 132 times"> + </span><span class="branchCov" title="Branch 1 was taken 130 times"> + </span>]:<span class="lineCov">        262 :           if (__rsize)</span></a>
+<a name="272"><span class="lineNum">     272 </span>                :<span class="lineCov">        132 :             this-&gt;_S_copy(_M_data(), __str._M_data(), __rsize);</span></a>
 <a name="273"><span class="lineNum">     273 </span>                :            : </a>
-<a name="274"><span class="lineNum">     274 </span>                :<span class="lineCov">        250 :           _M_set_length(__rsize);</span></a>
+<a name="274"><span class="lineNum">     274 </span>                :<span class="lineCov">        262 :           _M_set_length(__rsize);</span></a>
 <a name="275"><span class="lineNum">     275 </span>                :            :         }</a>
-<a name="276"><span class="lineNum">     276 </span>                :<span class="lineCov">        250 :     }</span></a>
+<a name="276"><span class="lineNum">     276 </span>                :<span class="lineCov">        262 :     }</span></a>
 <a name="277"><span class="lineNum">     277 </span>                :            : </a>
 <a name="278"><span class="lineNum">     278 </span>                :            :   template&lt;typename _CharT, typename _Traits, typename _Alloc&gt;</a>
 <a name="279"><span class="lineNum">     279 </span>                :            :     void</a>
@@ -379,27 +379,27 @@
 <a name="307"><span class="lineNum">     307 </span>                :            : </a>
 <a name="308"><span class="lineNum">     308 </span>                :            :   template&lt;typename _CharT, typename _Traits, typename _Alloc&gt;</a>
 <a name="309"><span class="lineNum">     309 </span>                :            :     void</a>
-<a name="310"><span class="lineNum">     310 </span>                :<span class="lineCov">        196 :     basic_string&lt;_CharT, _Traits, _Alloc&gt;::</span></a>
+<a name="310"><span class="lineNum">     310 </span>                :<span class="lineCov">        210 :     basic_string&lt;_CharT, _Traits, _Alloc&gt;::</span></a>
 <a name="311"><span class="lineNum">     311 </span>                :            :     _M_mutate(size_type __pos, size_type __len1, const _CharT* __s,</a>
 <a name="312"><span class="lineNum">     312 </span>                :            :               size_type __len2)</a>
 <a name="313"><span class="lineNum">     313 </span>                :            :     {</a>
-<a name="314"><span class="lineNum">     314 </span>                :<span class="lineCov">        196 :       const size_type __how_much = length() - __pos - __len1;</span></a>
+<a name="314"><span class="lineNum">     314 </span>                :<span class="lineCov">        210 :       const size_type __how_much = length() - __pos - __len1;</span></a>
 <a name="315"><span class="lineNum">     315 </span>                :            : </a>
-<a name="316"><span class="lineNum">     316 </span>                :<span class="lineCov">        196 :       size_type __new_capacity = length() + __len2 - __len1;</span></a>
-<a name="317"><span class="lineNum">     317 </span>        [<span class="branchCov" title="Branch 0 was taken 196 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        196 :       pointer __r = _M_create(__new_capacity, capacity());</span></a>
+<a name="316"><span class="lineNum">     316 </span>                :<span class="lineCov">        210 :       size_type __new_capacity = length() + __len2 - __len1;</span></a>
+<a name="317"><span class="lineNum">     317 </span>        [<span class="branchCov" title="Branch 0 was taken 210 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        210 :       pointer __r = _M_create(__new_capacity, capacity());</span></a>
 <a name="318"><span class="lineNum">     318 </span>                :            : </a>
-<a name="319"><span class="lineNum">     319 </span>        [<span class="branchCov" title="Branch 0 was taken 138 times"> + </span><span class="branchCov" title="Branch 1 was taken 58 times"> + </span>]:<span class="lineCov">        196 :       if (__pos)</span></a>
-<a name="320"><span class="lineNum">     320 </span>        [<span class="branchCov" title="Branch 0 was taken 138 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        138 :         this-&gt;_S_copy(__r, _M_data(), __pos);</span></a>
-<a name="321"><span class="lineNum">     321 </span>  [<span class="branchCov" title="Branch 0 was taken 196 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 196 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">        196 :       if (__s &amp;&amp; __len2)</span></a>
-<a name="322"><span class="lineNum">     322 </span>        [<span class="branchCov" title="Branch 0 was taken 196 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        196 :         this-&gt;_S_copy(__r + __pos, __s, __len2);</span></a>
-<a name="323"><span class="lineNum">     323 </span>        [<span class="branchCov" title="Branch 0 was taken 7 times"> + </span><span class="branchCov" title="Branch 1 was taken 189 times"> + </span>]:<span class="lineCov">        196 :       if (__how_much)</span></a>
+<a name="319"><span class="lineNum">     319 </span>        [<span class="branchCov" title="Branch 0 was taken 149 times"> + </span><span class="branchCov" title="Branch 1 was taken 61 times"> + </span>]:<span class="lineCov">        210 :       if (__pos)</span></a>
+<a name="320"><span class="lineNum">     320 </span>        [<span class="branchCov" title="Branch 0 was taken 149 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        149 :         this-&gt;_S_copy(__r, _M_data(), __pos);</span></a>
+<a name="321"><span class="lineNum">     321 </span>  [<span class="branchCov" title="Branch 0 was taken 210 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span><span class="branchCov" title="Branch 2 was taken 210 times"> + </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">        210 :       if (__s &amp;&amp; __len2)</span></a>
+<a name="322"><span class="lineNum">     322 </span>        [<span class="branchCov" title="Branch 0 was taken 210 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        210 :         this-&gt;_S_copy(__r + __pos, __s, __len2);</span></a>
+<a name="323"><span class="lineNum">     323 </span>        [<span class="branchCov" title="Branch 0 was taken 7 times"> + </span><span class="branchCov" title="Branch 1 was taken 203 times"> + </span>]:<span class="lineCov">        210 :       if (__how_much)</span></a>
 <a name="324"><span class="lineNum">     324 </span>                :<span class="lineCov">          7 :         this-&gt;_S_copy(__r + __pos + __len2,</span></a>
 <a name="325"><span class="lineNum">     325 </span>        [<span class="branchCov" title="Branch 0 was taken 7 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">          7 :                       _M_data() + __pos + __len1, __how_much);</span></a>
 <a name="326"><span class="lineNum">     326 </span>                :            : </a>
-<a name="327"><span class="lineNum">     327 </span>        [<span class="branchCov" title="Branch 0 was taken 196 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        196 :       _M_dispose();</span></a>
-<a name="328"><span class="lineNum">     328 </span>                :<span class="lineCov">        196 :       _M_data(__r);</span></a>
-<a name="329"><span class="lineNum">     329 </span>                :<span class="lineCov">        196 :       _M_capacity(__new_capacity);</span></a>
-<a name="330"><span class="lineNum">     330 </span>                :<span class="lineCov">        196 :     }</span></a>
+<a name="327"><span class="lineNum">     327 </span>        [<span class="branchCov" title="Branch 0 was taken 210 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        210 :       _M_dispose();</span></a>
+<a name="328"><span class="lineNum">     328 </span>                :<span class="lineCov">        210 :       _M_data(__r);</span></a>
+<a name="329"><span class="lineNum">     329 </span>                :<span class="lineCov">        210 :       _M_capacity(__new_capacity);</span></a>
+<a name="330"><span class="lineNum">     330 </span>                :<span class="lineCov">        210 :     }</span></a>
 <a name="331"><span class="lineNum">     331 </span>                :            : </a>
 <a name="332"><span class="lineNum">     332 </span>                :            :   template&lt;typename _CharT, typename _Traits, typename _Alloc&gt;</a>
 <a name="333"><span class="lineNum">     333 </span>                :            :     void</a>
@@ -428,21 +428,21 @@
 <a name="356"><span class="lineNum">     356 </span>                :            : </a>
 <a name="357"><span class="lineNum">     357 </span>                :            :   template&lt;typename _CharT, typename _Traits, typename _Alloc&gt;</a>
 <a name="358"><span class="lineNum">     358 </span>                :            :     basic_string&lt;_CharT, _Traits, _Alloc&gt;&amp;</a>
-<a name="359"><span class="lineNum">     359 </span>                :<span class="lineCov">        695 :     basic_string&lt;_CharT, _Traits, _Alloc&gt;::</span></a>
+<a name="359"><span class="lineNum">     359 </span>                :<span class="lineCov">        734 :     basic_string&lt;_CharT, _Traits, _Alloc&gt;::</span></a>
 <a name="360"><span class="lineNum">     360 </span>                :            :     _M_append(const _CharT* __s, size_type __n)</a>
 <a name="361"><span class="lineNum">     361 </span>                :            :     {</a>
-<a name="362"><span class="lineNum">     362 </span>                :<span class="lineCov">        695 :       const size_type __len = __n + this-&gt;size();</span></a>
+<a name="362"><span class="lineNum">     362 </span>                :<span class="lineCov">        734 :       const size_type __len = __n + this-&gt;size();</span></a>
 <a name="363"><span class="lineNum">     363 </span>                :            : </a>
-<a name="364"><span class="lineNum">     364 </span>        [<span class="branchCov" title="Branch 0 was taken 548 times"> + </span><span class="branchCov" title="Branch 1 was taken 147 times"> + </span>]:<span class="lineCov">        695 :       if (__len &lt;= this-&gt;capacity())</span></a>
+<a name="364"><span class="lineNum">     364 </span>        [<span class="branchCov" title="Branch 0 was taken 575 times"> + </span><span class="branchCov" title="Branch 1 was taken 159 times"> + </span>]:<span class="lineCov">        734 :       if (__len &lt;= this-&gt;capacity())</span></a>
 <a name="365"><span class="lineNum">     365 </span>                :            :         {</a>
-<a name="366"><span class="lineNum">     366 </span>        [<span class="branchCov" title="Branch 0 was taken 532 times"> + </span><span class="branchCov" title="Branch 1 was taken 16 times"> + </span>]:<span class="lineCov">        548 :           if (__n)</span></a>
-<a name="367"><span class="lineNum">     367 </span>                :<span class="lineCov">        532 :             this-&gt;_S_copy(this-&gt;_M_data() + this-&gt;size(), __s, __n);</span></a>
+<a name="366"><span class="lineNum">     366 </span>        [<span class="branchCov" title="Branch 0 was taken 559 times"> + </span><span class="branchCov" title="Branch 1 was taken 16 times"> + </span>]:<span class="lineCov">        575 :           if (__n)</span></a>
+<a name="367"><span class="lineNum">     367 </span>                :<span class="lineCov">        559 :             this-&gt;_S_copy(this-&gt;_M_data() + this-&gt;size(), __s, __n);</span></a>
 <a name="368"><span class="lineNum">     368 </span>                :            :         }</a>
 <a name="369"><span class="lineNum">     369 </span>                :            :       else</a>
-<a name="370"><span class="lineNum">     370 </span>                :<span class="lineCov">        147 :         this-&gt;_M_mutate(this-&gt;size(), size_type(0), __s, __n);</span></a>
+<a name="370"><span class="lineNum">     370 </span>                :<span class="lineCov">        159 :         this-&gt;_M_mutate(this-&gt;size(), size_type(0), __s, __n);</span></a>
 <a name="371"><span class="lineNum">     371 </span>                :            : </a>
-<a name="372"><span class="lineNum">     372 </span>                :<span class="lineCov">        695 :       this-&gt;_M_set_length(__len);</span></a>
-<a name="373"><span class="lineNum">     373 </span>                :<span class="lineCov">        695 :       return *this;</span></a>
+<a name="372"><span class="lineNum">     372 </span>                :<span class="lineCov">        734 :       this-&gt;_M_set_length(__len);</span></a>
+<a name="373"><span class="lineNum">     373 </span>                :<span class="lineCov">        734 :       return *this;</span></a>
 <a name="374"><span class="lineNum">     374 </span>                :            :     }</a>
 <a name="375"><span class="lineNum">     375 </span>                :            : </a>
 <a name="376"><span class="lineNum">     376 </span>                :            :   template&lt;typename _CharT, typename _Traits, typename _Alloc&gt;</a>
@@ -463,55 +463,55 @@
 <a name="391"><span class="lineNum">     391 </span>                :            : </a>
 <a name="392"><span class="lineNum">     392 </span>                :            :   template&lt;typename _CharT, typename _Traits, typename _Alloc&gt;</a>
 <a name="393"><span class="lineNum">     393 </span>                :            :     basic_string&lt;_CharT, _Traits, _Alloc&gt;&amp;</a>
-<a name="394"><span class="lineNum">     394 </span>                :<span class="lineCov">        150 :     basic_string&lt;_CharT, _Traits, _Alloc&gt;::</span></a>
+<a name="394"><span class="lineNum">     394 </span>                :<span class="lineCov">        158 :     basic_string&lt;_CharT, _Traits, _Alloc&gt;::</span></a>
 <a name="395"><span class="lineNum">     395 </span>                :            :     _M_replace_aux(size_type __pos1, size_type __n1, size_type __n2,</a>
 <a name="396"><span class="lineNum">     396 </span>                :            :                    _CharT __c)</a>
 <a name="397"><span class="lineNum">     397 </span>                :            :     {</a>
-<a name="398"><span class="lineNum">     398 </span>                :<span class="lineCov">        150 :       _M_check_length(__n1, __n2, &quot;basic_string::_M_replace_aux&quot;);</span></a>
+<a name="398"><span class="lineNum">     398 </span>                :<span class="lineCov">        158 :       _M_check_length(__n1, __n2, &quot;basic_string::_M_replace_aux&quot;);</span></a>
 <a name="399"><span class="lineNum">     399 </span>                :            : </a>
-<a name="400"><span class="lineNum">     400 </span>                :<span class="lineCov">        150 :       const size_type __old_size = this-&gt;size();</span></a>
-<a name="401"><span class="lineNum">     401 </span>                :<span class="lineCov">        150 :       const size_type __new_size = __old_size + __n2 - __n1;</span></a>
+<a name="400"><span class="lineNum">     400 </span>                :<span class="lineCov">        158 :       const size_type __old_size = this-&gt;size();</span></a>
+<a name="401"><span class="lineNum">     401 </span>                :<span class="lineCov">        158 :       const size_type __new_size = __old_size + __n2 - __n1;</span></a>
 <a name="402"><span class="lineNum">     402 </span>                :            : </a>
-<a name="403"><span class="lineNum">     403 </span>        [<span class="branchCov" title="Branch 0 was taken 150 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        150 :       if (__new_size &lt;= this-&gt;capacity())</span></a>
+<a name="403"><span class="lineNum">     403 </span>        [<span class="branchCov" title="Branch 0 was taken 158 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        158 :       if (__new_size &lt;= this-&gt;capacity())</span></a>
 <a name="404"><span class="lineNum">     404 </span>                :            :         {</a>
-<a name="405"><span class="lineNum">     405 </span>                :<span class="lineCov">        150 :           pointer __p = this-&gt;_M_data() + __pos1;</span></a>
+<a name="405"><span class="lineNum">     405 </span>                :<span class="lineCov">        158 :           pointer __p = this-&gt;_M_data() + __pos1;</span></a>
 <a name="406"><span class="lineNum">     406 </span>                :            : </a>
-<a name="407"><span class="lineNum">     407 </span>                :<span class="lineCov">        150 :           const size_type __how_much = __old_size - __pos1 - __n1;</span></a>
-<a name="408"><span class="lineNum">     408 </span>  [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 150 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">        150 :           if (__how_much &amp;&amp; __n1 != __n2)</span></a>
+<a name="407"><span class="lineNum">     407 </span>                :<span class="lineCov">        158 :           const size_type __how_much = __old_size - __pos1 - __n1;</span></a>
+<a name="408"><span class="lineNum">     408 </span>  [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 158 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">        158 :           if (__how_much &amp;&amp; __n1 != __n2)</span></a>
 <a name="409"><span class="lineNum">     409 </span>                :<span class="lineNoCov">          0 :             this-&gt;_S_move(__p + __n2, __p + __n1, __how_much);</span></a>
 <a name="410"><span class="lineNum">     410 </span>                :            :         }</a>
 <a name="411"><span class="lineNum">     411 </span>                :            :       else</a>
 <a name="412"><span class="lineNum">     412 </span>                :<span class="lineNoCov">          0 :         this-&gt;_M_mutate(__pos1, __n1, 0, __n2);</span></a>
 <a name="413"><span class="lineNum">     413 </span>                :            : </a>
-<a name="414"><span class="lineNum">     414 </span>        [<span class="branchCov" title="Branch 0 was taken 150 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        150 :       if (__n2)</span></a>
-<a name="415"><span class="lineNum">     415 </span>                :<span class="lineCov">        150 :         this-&gt;_S_assign(this-&gt;_M_data() + __pos1, __n2, __c);</span></a>
+<a name="414"><span class="lineNum">     414 </span>        [<span class="branchCov" title="Branch 0 was taken 158 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        158 :       if (__n2)</span></a>
+<a name="415"><span class="lineNum">     415 </span>                :<span class="lineCov">        158 :         this-&gt;_S_assign(this-&gt;_M_data() + __pos1, __n2, __c);</span></a>
 <a name="416"><span class="lineNum">     416 </span>                :            : </a>
-<a name="417"><span class="lineNum">     417 </span>                :<span class="lineCov">        150 :       this-&gt;_M_set_length(__new_size);</span></a>
-<a name="418"><span class="lineNum">     418 </span>                :<span class="lineCov">        150 :       return *this;</span></a>
+<a name="417"><span class="lineNum">     417 </span>                :<span class="lineCov">        158 :       this-&gt;_M_set_length(__new_size);</span></a>
+<a name="418"><span class="lineNum">     418 </span>                :<span class="lineCov">        158 :       return *this;</span></a>
 <a name="419"><span class="lineNum">     419 </span>                :            :     }</a>
 <a name="420"><span class="lineNum">     420 </span>                :            : </a>
 <a name="421"><span class="lineNum">     421 </span>                :            :   template&lt;typename _CharT, typename _Traits, typename _Alloc&gt;</a>
 <a name="422"><span class="lineNum">     422 </span>                :            :     basic_string&lt;_CharT, _Traits, _Alloc&gt;&amp;</a>
-<a name="423"><span class="lineNum">     423 </span>                :<span class="lineCov">        209 :     basic_string&lt;_CharT, _Traits, _Alloc&gt;::</span></a>
+<a name="423"><span class="lineNum">     423 </span>                :<span class="lineCov">        218 :     basic_string&lt;_CharT, _Traits, _Alloc&gt;::</span></a>
 <a name="424"><span class="lineNum">     424 </span>                :            :     _M_replace(size_type __pos, size_type __len1, const _CharT* __s,</a>
 <a name="425"><span class="lineNum">     425 </span>                :            :                const size_type __len2)</a>
 <a name="426"><span class="lineNum">     426 </span>                :            :     {</a>
-<a name="427"><span class="lineNum">     427 </span>                :<span class="lineCov">        209 :       _M_check_length(__len1, __len2, &quot;basic_string::_M_replace&quot;);</span></a>
+<a name="427"><span class="lineNum">     427 </span>                :<span class="lineCov">        218 :       _M_check_length(__len1, __len2, &quot;basic_string::_M_replace&quot;);</span></a>
 <a name="428"><span class="lineNum">     428 </span>                :            : </a>
-<a name="429"><span class="lineNum">     429 </span>                :<span class="lineCov">        209 :       const size_type __old_size = this-&gt;size();</span></a>
-<a name="430"><span class="lineNum">     430 </span>                :<span class="lineCov">        209 :       const size_type __new_size = __old_size + __len2 - __len1;</span></a>
+<a name="429"><span class="lineNum">     429 </span>                :<span class="lineCov">        218 :       const size_type __old_size = this-&gt;size();</span></a>
+<a name="430"><span class="lineNum">     430 </span>                :<span class="lineCov">        218 :       const size_type __new_size = __old_size + __len2 - __len1;</span></a>
 <a name="431"><span class="lineNum">     431 </span>                :            : </a>
-<a name="432"><span class="lineNum">     432 </span>        [<span class="branchCov" title="Branch 0 was taken 160 times"> + </span><span class="branchCov" title="Branch 1 was taken 49 times"> + </span>]:<span class="lineCov">        209 :       if (__new_size &lt;= this-&gt;capacity())</span></a>
+<a name="432"><span class="lineNum">     432 </span>        [<span class="branchCov" title="Branch 0 was taken 167 times"> + </span><span class="branchCov" title="Branch 1 was taken 51 times"> + </span>]:<span class="lineCov">        218 :       if (__new_size &lt;= this-&gt;capacity())</span></a>
 <a name="433"><span class="lineNum">     433 </span>                :            :         {</a>
-<a name="434"><span class="lineNum">     434 </span>                :<span class="lineCov">        160 :           pointer __p = this-&gt;_M_data() + __pos;</span></a>
+<a name="434"><span class="lineNum">     434 </span>                :<span class="lineCov">        167 :           pointer __p = this-&gt;_M_data() + __pos;</span></a>
 <a name="435"><span class="lineNum">     435 </span>                :            : </a>
-<a name="436"><span class="lineNum">     436 </span>                :<span class="lineCov">        160 :           const size_type __how_much = __old_size - __pos - __len1;</span></a>
-<a name="437"><span class="lineNum">     437 </span>        [<span class="branchCov" title="Branch 0 was taken 160 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        160 :           if (_M_disjunct(__s))</span></a>
+<a name="436"><span class="lineNum">     436 </span>                :<span class="lineCov">        167 :           const size_type __how_much = __old_size - __pos - __len1;</span></a>
+<a name="437"><span class="lineNum">     437 </span>        [<span class="branchCov" title="Branch 0 was taken 167 times"> + </span><span class="branchNoCov" title="Branch 1 was not taken"> - </span>]:<span class="lineCov">        167 :           if (_M_disjunct(__s))</span></a>
 <a name="438"><span class="lineNum">     438 </span>                :            :             {</a>
-<a name="439"><span class="lineNum">     439 </span>  [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 160 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">        160 :               if (__how_much &amp;&amp; __len1 != __len2)</span></a>
+<a name="439"><span class="lineNum">     439 </span>  [<span class="branchNoCov" title="Branch 0 was not taken"> - </span><span class="branchCov" title="Branch 1 was taken 167 times"> + </span><span class="branchNoCov" title="Branch 2 was not taken"> - </span><span class="branchNoCov" title="Branch 3 was not taken"> - </span>]:<span class="lineCov">        167 :               if (__how_much &amp;&amp; __len1 != __len2)</span></a>
 <a name="440"><span class="lineNum">     440 </span>                :<span class="lineNoCov">          0 :                 this-&gt;_S_move(__p + __len2, __p + __len1, __how_much);</span></a>
-<a name="441"><span class="lineNum">     441 </span>        [<span class="branchCov" title="Branch 0 was taken 144 times"> + </span><span class="branchCov" title="Branch 1 was taken 16 times"> + </span>]:<span class="lineCov">        160 :               if (__len2)</span></a>
-<a name="442"><span class="lineNum">     442 </span>                :<span class="lineCov">        144 :                 this-&gt;_S_copy(__p, __s, __len2);</span></a>
+<a name="441"><span class="lineNum">     441 </span>        [<span class="branchCov" title="Branch 0 was taken 150 times"> + </span><span class="branchCov" title="Branch 1 was taken 17 times"> + </span>]:<span class="lineCov">        167 :               if (__len2)</span></a>
+<a name="442"><span class="lineNum">     442 </span>                :<span class="lineCov">        150 :                 this-&gt;_S_copy(__p, __s, __len2);</span></a>
 <a name="443"><span class="lineNum">     443 </span>                :            :             }</a>
 <a name="444"><span class="lineNum">     444 </span>                :            :           else</a>
 <a name="445"><span class="lineNum">     445 </span>                :            :             {</a>
@@ -537,10 +537,10 @@
 <a name="465"><span class="lineNum">     465 </span>                :            :             }</a>
 <a name="466"><span class="lineNum">     466 </span>                :            :         }</a>
 <a name="467"><span class="lineNum">     467 </span>                :            :       else</a>
-<a name="468"><span class="lineNum">     468 </span>                :<span class="lineCov">         49 :         this-&gt;_M_mutate(__pos, __len1, __s, __len2);</span></a>
+<a name="468"><span class="lineNum">     468 </span>                :<span class="lineCov">         51 :         this-&gt;_M_mutate(__pos, __len1, __s, __len2);</span></a>
 <a name="469"><span class="lineNum">     469 </span>                :            : </a>
-<a name="470"><span class="lineNum">     470 </span>                :<span class="lineCov">        209 :       this-&gt;_M_set_length(__new_size);</span></a>
-<a name="471"><span class="lineNum">     471 </span>                :<span class="lineCov">        209 :       return *this;</span></a>
+<a name="470"><span class="lineNum">     470 </span>                :<span class="lineCov">        218 :       this-&gt;_M_set_length(__new_size);</span></a>
+<a name="471"><span class="lineNum">     471 </span>                :<span class="lineCov">        218 :       return *this;</span></a>
 <a name="472"><span class="lineNum">     472 </span>                :            :     }</a>
 <a name="473"><span class="lineNum">     473 </span>                :            : </a>
 <a name="474"><span class="lineNum">     474 </span>                :            :   template&lt;typename _CharT, typename _Traits, typename _Alloc&gt;</a>
