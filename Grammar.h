@@ -13,6 +13,9 @@
 #include <queue>
 #include <map>
 #include <functional>
+#include <ostream>
+#include <istream>
+#include <fstream>
 
 template <typename SymbolType = char, typename Hash = std::hash<SymbolType>>
 class Grammar {
