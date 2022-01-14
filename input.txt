@@ -1,0 +1,11 @@
+term
+a b
+nonterm
+S
+start
+S
+rules
+S->
+S->SaSb
+check
+aabb
